@@ -1,3 +1,16 @@
+My ReadME
+
+This is a initial repo for the frontend, I added some comments on how stuff works and an example component, button and reducer.
+There is a lint config and some libraries added already, but we can discuss that later.
+
+To run this: 
+1. Clone/fork
+2. npm install
+3. npm start
+
+
+Create React App README:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
