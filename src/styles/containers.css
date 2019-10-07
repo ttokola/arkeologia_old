@@ -1,0 +1,85 @@
+:root{
+  --primary-color: #161616;
+  --secondary-color: #1b1c1d;
+
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #808080;
+
+  
+  --accent-color: rgb(66, 66, 66);
+  --accent-color-dark: #1b1c1d;
+  --accent-color-light: #808080;
+  --effect-color: #cecece;
+
+}
+
+
+html, body, #root, #app, #app>div {
+  height: auto;
+  min-height: 100%;
+}
+
+.appContainer{
+  background: var(--primary-color);
+  margin: 0px;
+  height: inherit;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/*Notification stuff*/
+
+.notificationContainerInner{
+  width: max-content;
+  height: max-content;
+  float: right;
+  min-width: 300px;
+  background: var(--secondary-color);
+  position: fixed;
+  right: 30px;
+  bottom: 60px;
+  -webkit-box-shadow: 0 0 5px var(--accent-color);
+  box-shadow: 0 0 5px var(--accent-color);
+  
+  border-radius: 5px;
+  transition: box-shadow 0s cubic-bezier(0.165, 0.84, 0.44, 1)
+
+}
+.notificationContainerInner:hover{
+  box-shadow: 0 0 10px var(--accent-color-light);
+  border-radius: 5px;
+  transition-duration: 0.5s
+
+}
+
+
+.notificationGrid{
+  display: grid;
+  padding: 0px 30px;
+  grid-template-areas:
+    "header"
+    "message"
+    "buttons"
+    "timer";
+  grid-gap: 5px;
+
+}
+
+.notificationTimer{
+  height: 10px;
+  display: flex;
+  
+}
+
+.timeRemaining{
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 100%);
+  height: 10px;
+  width: 100%;
+  animation-name: timer;
+  animation-timing-function: linear;
+  
+}
+@keyframes timer {
+  from {width: 100%;}
+  to {width: 0%;}
+}
