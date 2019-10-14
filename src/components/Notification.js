@@ -7,26 +7,25 @@ import "../styles/buttons.css"
 
 
 const Notification = (props) => {
-  console.log(props)
+
   console.log(`setting notification timer animation duration for ${props.notification.seconds} seconds;`)
+  if(document.getElementById("notificationTimer") !== null){
+    //notification is currently rendered.
 
-  let index = null
-
-  for(let i=0;i<document.styleSheets[0].cssRules.length;i++){
-
-    if(document.styleSheets[0].cssRules[i]["selectorText"] === ".timeRemaining"){
-      index = i
-      break
-    }
-  }
-  if (index) {
-    document.styleSheets[0].cssRules[index].style["animationDuration"] = `${props.notification.seconds}s`
-
+    //deleting and adding the element restarts the animation.
+    let element = document.getElementById("notificationTimer")
+    let parent = element.parentElement
+    parent.removeChild(element)
+    parent.appendChild(element)
+    //works.
   }
 
 
 
   const closeNotification = (event) => {
+    //remove the timed task that would hide the notification  after the duration.
+    // then call reducer function cancelNotification that replaces the current state.notification value with the default one.
+
     event.preventDefault()
     clearTimeout(props.notification.cancel)
     props.cancelNotification()
@@ -37,16 +36,16 @@ const Notification = (props) => {
     <div name="notificationContainerInner" className="notificationContainerInner">
       <div className="notificationGrid">
         {props.notification.error?
-          <p className="notificationHeader headerText">Error</p>
+          <p className="notificationHeaderText">Error</p>
           :
-          <p className="notificationHeader headerText">Notification</p>
+          <p className="notificationHeaderText">Notification</p>
         }
 
         <p className="notificationDescription">{props.notification.message}</p>
         <button onClick={closeNotification} className="notificationButton rippleButton">Close</button>
       </div>
       <div className="notificationTimer">
-        <div className="timeRemaining"></div>
+        <div id="notificationTimer" className="timeRemaining" style={{"animationDuration": `${props.notification.seconds}s`}}></div>
       </div>
 
 
@@ -59,6 +58,7 @@ const Notification = (props) => {
 }
 
 const mapStateToProps = (state) => {
+  //assign notification to props from state
   return {
     notification: state.notification
   }
