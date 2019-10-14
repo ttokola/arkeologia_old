@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "username" : "maybe",
+      "name": "Niklas",
+      "passwordHash": "$2b$10$o/9R2YDNsyLoK9G2S37zZuf6EnHtITHZO5PLy5E5NnkBGECpyJ5lK",
+      "activated": "true"
+    }
+  ]
+}

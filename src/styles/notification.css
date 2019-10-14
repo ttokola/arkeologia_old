@@ -13,21 +13,26 @@
 
 }
 
-
-html, body, #root, #app, #app>div {
-  height: auto;
-  min-height: 100%;
-}
-
-.appContainer{
-  background: var(--primary-color);
+.notificationHeaderText{
+  grid-area: "header";
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   margin: 0px;
-  height: inherit;
-  margin-right: auto;
-  margin-left: auto;
+  font-weight: 900;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 10px;
 }
+.notificationDescription{
+  grid-area: "message";
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  margin: 0px;
+  text-align: center;
+  font-size: 0.8em;
+  padding: 20px 0px;
 
-/*Notification stuff*/
+}
 
 .notificationContainerInner{
   width: max-content;

@@ -1,0 +1,85 @@
+:root{
+  --primary-color: #161616;
+  --secondary-color: #1b1c1d;
+
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #808080;
+
+  
+  --accent-color: rgb(66, 66, 66);
+  --accent-color-dark: #1b1c1d;
+  --accent-color-light: #808080;
+  --effect-color: #cecece;
+
+}
+
+.altMenuContainer{
+  z-index: 3;
+  width: 100%;
+  height: fit-content;
+  top: 0;
+  background: var(--secondary-color);
+  -webkit-box-shadow: 10px var(--accent-color-light);
+  box-shadow: 0px 0px 10px var(--accent-color);
+}
+
+.altMenuGrid{
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-areas:
+    "left center right";
+  grid-gap: 30px;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border-radius: 5px;
+}
+
+.altMenuLogo{
+  grid-area: left;
+  padding:10px;
+}
+
+.altMenuButtonList{
+  color: var(--primary-text-color);
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  grid-area: right;
+}
+
+.menuItemText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1.2em;
+  display: block;
+  font-weight: 500;
+}
+
+.logoText{
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  margin: 0px;
+  font-weight: 700;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.menuListItem{
+  cursor: pointer;
+  float: right;
+  margin: 0px 10px;
+  padding: 0px 5px;
+  height: 100%;
+  display: block;
+  text-align: center;
+  align-self: center;
+  transition: 0s;
+  color: var(--effect-color);
+}
+
+.menuListItem:hover{
+  color: var(--primary-text-color);
+  transition: 0.5s;
+  background: var(--accent-color);
+  height: 100%;
+}

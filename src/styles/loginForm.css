@@ -1,0 +1,184 @@
+:root{
+  --primary-color: #161616;
+  --secondary-color: #1b1c1d;
+
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #808080;
+
+  
+  --accent-color: rgb(66, 66, 66);
+  --accent-color-dark: #1b1c1d;
+  --accent-color-light: #808080;
+  --effect-color: #cecece;
+
+}
+
+.loginContainer{
+  
+  background: var(--secondary-color);
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: max-content;
+  max-width: 400px;
+  max-height: 300px;
+  border-radius: 5px;
+  margin:auto;
+  padding: 20px;
+
+  box-shadow: 0 0 5px var(--accent-color);
+  transition: box-shadow 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.loginContainer:focus-within{
+  box-shadow: 0 0 10px var(--accent-color-light)
+}
+
+.inputContainer{
+  background: var(--secondary-color);
+  margin: 20px 0px;
+  padding: 5px;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border: none;
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1em;
+  resize: none;
+}
+
+.inputFocusLine{
+  position: relative;
+  bottom: 2px;
+  margin: auto;
+  width: 0%;
+  border-bottom: 2px solid white;
+  transition: linear width 0s;
+}
+.inputFocusLineComment{
+  bottom: 2px;
+}
+
+.input{
+  vertical-align: top;
+  background: var(--secondary-color);
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border: none;
+  margin: 0px;
+  overflow: hidden;
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1em;
+  resize: none;
+  padding: 0px;
+  border-bottom: 2px solid var(--accent-color-light);
+}
+
+.input:focus{
+  outline: none;
+}
+
+.input:focus + .inputFocusLine{
+  border-bottom: 2px solid white;
+  width:100%;
+  transition-duration: 0.3s;
+}
+
+.loginForm{
+
+  background: var(--secondary-color);
+  margin: 20px 5px;
+  padding: 5px;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border: none;
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1em;
+  border-bottom: 2px linear-gradient(to right, var(--accent-color) 50%, white 50%);
+  resize: none;
+  transition: border-bottom-color 2s;
+}
+
+.loginForm:focus{
+  outline: none;
+}
+
+.rippleButton {
+  background: var(--accent-color);
+  color: var(--primary-text-color);
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: 0;
+  border: none;
+  vertical-align: baseline;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  margin: 0 .25em 0 0;
+  padding: .78571429em 1.5em .78571429em;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 700;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: .28571429rem;
+  background-position: center;
+  transition: background 0s;
+}
+.rippleButton:hover {
+  background: var(--accent-color-light) radial-gradient(circle, transparent 1%, var(--accent-color-light) 1%) center/15000%;
+  transition: background 0.5s;
+}
+.rippleButton:active {
+  background-color: var(--effect-color);
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.positiveButton {
+
+  float: right;
+  margin: 0px;
+}
+.positiveButton:hover {
+  background: var(--accent-color-light) radial-gradient(circle, transparent 1%, var(--accent-color-light) 1%) center/15000%;
+}
+
+.negativeButton {
+  background: var(--accent-color-dark);
+  color: var(--secondary-text-color);
+  float: right;
+  transition: background 0s;
+}
+.negativeButton:hover {
+  background: var(--accent-color) radial-gradient(circle, transparent 1%, var(--accent-color) 1%) center/15000%;
+  color: var(--primary-text-color);
+  transition: all 0.5s;
+}
+
+.centerAlign{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.headerText{
+  padding: 0px;
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.5em;
+}
+.bottomPadding30{
+  padding-bottom: 30px;
+}
