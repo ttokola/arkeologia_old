@@ -4,7 +4,7 @@ This is a initial repo for the frontend, I added some comments on how stuff work
 There is a lint config and some libraries added already, but we can discuss that later.
 
 To run this: 
-1. Clone/fork
+1. git clone https://github.com/maybet0morrow/software_project_front_end
 2. npm install
 3. npm start
 
