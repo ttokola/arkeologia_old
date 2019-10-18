@@ -14,6 +14,7 @@ import LoginForm from "./components/LoginForm"
 import NavMenu from "./components/NavMenu"
 import About from "./components/About"
 import ProjectInfo from "./components/ProjectInfo"
+import MapContainerOpen from "./components/MapContainerOpen"
 
 
 const App = (props) => {
@@ -61,8 +62,9 @@ const App = (props) => {
                 <button className="rippleButton" onClick={notifyClick}>Notify</button>
               </div>
             }
-
+            <MapContainerOpen/>
           </div>
+
 
         )}/>
         <Route path="/login" render={({history}) => (
