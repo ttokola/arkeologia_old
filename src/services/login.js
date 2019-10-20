@@ -1,6 +1,6 @@
 import axios from "axios"
 //when running sepatate frontend
-const baseUrl = "http://localhost:3001/api/login"
+const baseUrl = "http://localhost:3001/login"
 //const baseUrl = "/api/login"
 
 

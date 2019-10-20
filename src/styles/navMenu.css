@@ -13,7 +13,10 @@
 
 }
 
-.altMenuContainer{
+.menuContainer{
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
   z-index: 3;
   width: 100%;
   height: fit-content;
@@ -23,7 +26,7 @@
   box-shadow: 0px 0px 10px var(--accent-color);
 }
 
-.altMenuGrid{
+.menuGrid{
   max-width: 1200px;
   margin: auto;
   display: grid;
@@ -35,12 +38,12 @@
   border-radius: 5px;
 }
 
-.altMenuLogo{
+.menuLogo{
   grid-area: left;
   padding:10px;
 }
 
-.altMenuButtonList{
+.menuButtonList{
   color: var(--primary-text-color);
   list-style-type: none;
   padding: 0;

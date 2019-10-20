@@ -18,7 +18,7 @@ export const NavMenu = (props) => {
   const logoutClick = (event) => {
     event.preventDefault()
     console.log("Logging out")
-    props.logout()
+    props.logout(props.notify)
   }
   const loginClick = (event) => {
     event.preventDefault()
@@ -27,12 +27,12 @@ export const NavMenu = (props) => {
   }
   console.log(props)
   return (
-    <div className="altMenuContainer">
-      <div className="altMenuGrid">
-        <div className="altMenuLogo">
+    <div className="menuContainer">
+      <div className="menuGrid">
+        <div className="menuLogo">
           <p className="logoText">Chimneys GO</p>
         </div>
-        <ul className="altMenuButtonList">
+        <ul className="menuButtonList">
           {props.user?
             <li className="menuListItem" onClick={logoutClick}>
               <p className="menuItemText">{props.user.username} Logout</p>

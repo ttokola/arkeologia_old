@@ -1,10 +1,159 @@
 {
-  "users": [
+  "login": [
     {
-      "username" : "maybe",
+      "username": "maybe",
       "name": "Niklas",
       "passwordHash": "$2b$10$o/9R2YDNsyLoK9G2S37zZuf6EnHtITHZO5PLy5E5NnkBGECpyJ5lK",
-      "activated": "true"
+      "activated": "true",
+      "id": "1234"
+    },
+    {
+      "username": "maybe",
+      "password": "passw0rd",
+      "id": "IGZYjrf"
+    },
+    {
+      "username": "maybe",
+      "password": "passw0rd",
+      "id": "-iQ00C3"
+    },
+    {
+      "username": "maybe",
+      "password": "passw0rd",
+      "id": "DHpTI8j"
+    },
+    {
+      "username": "maybe",
+      "password": "passw0rd",
+      "id": "zFN4nvO"
+    },
+    {
+      "username": "maybe",
+      "password": "passw0rd",
+      "id": "NLP6BWL"
+    }
+  ],
+  "posts": [
+    {
+      "title": "Big Chimney",
+      "author": "Niklas",
+      "story": "This is a placeholder story that is part of the post. Maybe I will make it a bit longer for no reason at all.",
+      "image": "null",
+      "location": {
+        "lat": 65.025551,
+        "lng": 25.471288
+      },
+      "id": 0
+    },
+    {
+      "title": "Small Chimney",
+      "author": "Niklas",
+      "story": "This is a placeholder story that is part of the post. Maybe I will make it a bit longer for no reason at all.",
+      "image": "null",
+      "location": {
+        "lat": 65.015477,
+        "lng": 25.47219
+      },
+      "id": 1
+    },
+    {
+      "title": "Weird Chimney",
+      "author": "Niklas",
+      "story": "This is a placeholder story that is part of the post. Maybe I will make it a bit longer for no reason at all.",
+      "image": "null",
+      "location": {
+        "lat": 65.058892,
+        "lng": 25.465208
+      },
+      "id": 2
+    },
+    {
+      "title": "Suggestive Chimney",
+      "author": "Niklas",
+      "story": "This is a placeholder story that is part of the post. Maybe I will make it a bit longer for no reason at all.",
+      "image": "null",
+      "location": {
+        "lat": 65.045375,
+        "lng": 25.435562
+      },
+      "id": 3
+    },
+    {
+      "title": "Ugly Chimney",
+      "author": "Niklas",
+      "story": "This is a placeholder story that is part of the post. Maybe I will make it a bit longer for no reason at all.",
+      "image": "null",
+      "location": {
+        "lat": 65.003898,
+        "lng": 25.459645
+      },
+      "id": 4
+    },
+    {
+      "author": "Niklas",
+      "title": "PLACEHOLDER TITLE",
+      "story": "PLACEHOLDER STORY",
+      "image": null,
+      "location": {
+        "lat": 65.00718808512505,
+        "lng": 25.479440689086918
+      },
+      "id": 5
+    },
+    {
+      "author": "Niklas",
+      "title": "PLACEHOLDER TITLE",
+      "story": "PLACEHOLDER STORY",
+      "image": null,
+      "location": {
+        "lat": 65.00907373912145,
+        "lng": 25.484547615051273
+      },
+      "id": 6
+    },
+    {
+      "author": "Niklas",
+      "title": "PLACEHOLDER TITLE",
+      "story": "PLACEHOLDER STORY",
+      "image": null,
+      "location": {
+        "lat": 65.0160893783731,
+        "lng": 25.495018959045414
+      },
+      "id": 7
+    },
+    {
+      "author": "Niklas",
+      "title": "PLACEHOLDER TITLE",
+      "story": "PLACEHOLDER STORY",
+      "image": null,
+      "location": {
+        "lat": 65.01139436128175,
+        "lng": 25.47480583190918
+      },
+      "id": 8
+    },
+    {
+      "author": "Niklas",
+      "title": "PLACEHOLDER TITLE",
+      "story": "PLACEHOLDER STORY",
+      "image": null,
+      "location": {
+        "lat": 65.00221947462497,
+        "lng": 25.491456985473633
+      },
+      "id": 9
+    },
+    {
+      "author": "Niklas",
+      "title": "PLACEHOLDER TITLE",
+      "story": "PLACEHOLDER STORY",
+      "image": null,
+      "location": {
+        "lat": 65.01980945714696,
+        "lng": 25.46437740325928
+      },
+      "id": 10
     }
   ]
 }

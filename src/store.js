@@ -2,6 +2,8 @@ import {createStore, combineReducers, applyMiddleware} from "../node_modules/red
 import thunk from "redux-thunk"
 import {composeWithDevTools} from "redux-devtools-extension"
 import notificationReducer from "./reducers/notificationReducer"
+import postReducer from "./reducers/postReducer"
+import loginReducer from "./reducers/loginReducer"
 
 //import reducers here
 
@@ -9,7 +11,9 @@ import notificationReducer from "./reducers/notificationReducer"
 const reducer = combineReducers({
   //combine reducers here
   //user: userReducer (for example)
-  notification: notificationReducer
+  notification: notificationReducer,
+  posts: postReducer,
+  user: loginReducer,
 
 })
 

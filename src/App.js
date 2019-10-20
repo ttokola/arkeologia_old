@@ -7,6 +7,7 @@ import {Route, BrowserRouter as Router} from "react-router-dom"
 //import dispatch methods
 import {notify} from "./reducers/notificationReducer"
 import {login, logout, initLoggedUser} from "./reducers/loginReducer"
+import {initPosts} from "./reducers/postReducer"
 
 //import components
 import Notification from "./components/Notification"
@@ -16,16 +17,24 @@ import About from "./components/About"
 import ProjectInfo from "./components/ProjectInfo"
 import MapContainerOpen from "./components/MapContainerOpen"
 
+import "./styles/containers.css"
+
 
 const App = (props) => {
   //do stuff when initialized
   useEffect(() => {
     console.log("app hook")
     const loggedUserJSON = window.localStorage.getItem("loggedUser")
-    if(loggedUserJSON){
+
+    if(loggedUserJSON && !props.user){
+      //init user if localstorage has user saved.
+      console.log("initing user")
       const user = JSON.parse(loggedUserJSON)
       props.initLoggedUser(user)
-
+    }
+    if(props.posts.length === 0){
+      console.log("initing posts")
+      props.initPosts()
     }
     document.title = "Chimneys GO"
   }, [props])
@@ -51,20 +60,7 @@ const App = (props) => {
         )}/>
         <Route exact path ="/" render={({history}) => (
 
-          <div className="navBarPadding">
-            {props.user?
-              <div>
-                <button className="rippleButton" onClick={notifyClick}>Notify</button>
-              </div>
-
-              :
-              <div>
-                <button className="rippleButton" onClick={notifyClick}>Notify</button>
-              </div>
-            }
-            <MapContainerOpen/>
-          </div>
-
+          <MapContainerOpen posts={props.posts}/>
 
         )}/>
         <Route path="/login" render={({history}) => (
@@ -93,7 +89,8 @@ const mapStateToProps = (state) => {
   return {
     //maps state to props, after this you can for example call props.notification
     notification: state.notification,
-    user: state.user
+    user: state.user,
+    posts: state.posts
 
   }
 }
@@ -105,6 +102,7 @@ const mapDispatchToProps = {
   login,
   logout,
   initLoggedUser,
+  initPosts
 
 }
 

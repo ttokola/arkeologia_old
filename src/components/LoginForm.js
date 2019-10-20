@@ -13,7 +13,7 @@ export const LoginForm = (props) => {
     const password = event.target.password.value
     event.target.username.value = ""
     event.target.password.value = ""
-    const user = await props.login(username,password, props.notify)
+    const user = await props.login(username, password, props.notify)
     //init content if login was succesfull.
     if(user){
       //LOG IN

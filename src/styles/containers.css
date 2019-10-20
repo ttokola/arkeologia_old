@@ -1,0 +1,13 @@
+html, body, #root, #app, #app>div {
+  height: auto;
+  min-height: 100%;
+}
+.appContainer{
+  background-color: #161616;
+  margin: 0px;
+  position: absolute;
+  height: 100% !important;
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+}
