@@ -6,31 +6,6 @@
       "passwordHash": "$2b$10$o/9R2YDNsyLoK9G2S37zZuf6EnHtITHZO5PLy5E5NnkBGECpyJ5lK",
       "activated": "true",
       "id": "1234"
-    },
-    {
-      "username": "maybe",
-      "password": "passw0rd",
-      "id": "IGZYjrf"
-    },
-    {
-      "username": "maybe",
-      "password": "passw0rd",
-      "id": "-iQ00C3"
-    },
-    {
-      "username": "maybe",
-      "password": "passw0rd",
-      "id": "DHpTI8j"
-    },
-    {
-      "username": "maybe",
-      "password": "passw0rd",
-      "id": "zFN4nvO"
-    },
-    {
-      "username": "maybe",
-      "password": "passw0rd",
-      "id": "NLP6BWL"
     }
   ],
   "posts": [
@@ -154,6 +129,17 @@
         "lng": 25.46437740325928
       },
       "id": 10
+    },
+    {
+      "author": "Niklas",
+      "title": "PLACEHOLDER TITLE",
+      "story": "PLACEHOLDER STORY",
+      "image": null,
+      "location": {
+        "lat": 65.00751445784397,
+        "lng": 25.464763641357422
+      },
+      "id": 11
     }
   ]
 }

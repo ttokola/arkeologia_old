@@ -31,9 +31,10 @@ export const getAllPosts = () => {
   }
 }
 
-export const createPost = (author, title, story, image, location) => {
+export const createPost = (object) => {
+  // {author, title, story, image, location}
   return async dispatch => {
-    const newPost = postService.createNew(author, title, story, image, location)
+    const newPost = postService.createNew(object)
     dispatch({
       type: "CREATE_POST",
       data: newPost
