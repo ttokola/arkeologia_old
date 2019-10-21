@@ -14,7 +14,7 @@
 }
 
 .loginContainer{
-  
+  z-index: 4;
   background: var(--secondary-color);
   width: -webkit-fill-available;
   width: -moz-available;

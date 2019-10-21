@@ -19,7 +19,7 @@
   flex: 0 1 auto;
   z-index: 3;
   width: 100%;
-  height: fit-content;
+  height: 4em;
   top: 0;
   background: var(--secondary-color);
   -webkit-box-shadow: 10px var(--accent-color-light);
@@ -28,7 +28,7 @@
 
 .menuGrid{
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   display: grid;
   grid-template-areas:
     "left center right";
@@ -70,8 +70,8 @@
 .menuListItem{
   cursor: pointer;
   float: right;
-  margin: 0px 10px;
-  padding: 0px 5px;
+  margin: 0px;
+  padding: 0px 20px;
   height: 100%;
   display: block;
   text-align: center;
@@ -85,4 +85,21 @@
   transition: 0.5s;
   background: var(--accent-color);
   height: 100%;
+}
+
+.accountDropDownContainer{
+  float: right;
+  height: fit-content;
+  width: fit-content;
+  top: 4em;
+}
+
+.maxWidthContainer{
+  top: 0;
+  max-width: 1200px;
+  padding: 0px;
+  margin: 0 auto;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border-radius: 5px;
 }

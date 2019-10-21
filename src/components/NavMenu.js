@@ -1,10 +1,22 @@
-import React from "react"
+import React, {useState, useEffect, useRef} from "react"
 import {connect} from "react-redux"
 import {logout} from "../reducers/loginReducer"
 import {notify} from "../reducers/notificationReducer"
+import DropDownList from "./DropDownList"
+
 import "../styles/navMenu.css"
+import useComponentVisible from "../hooks/OutsideClick"
 
 export const NavMenu = (props) => {
+
+  const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false)
+  const toggleDDV = (event) => {
+    //DDV = dropDownVisibility
+    event.preventDefault()
+    console.log("toggling dropdown visibility")
+    setIsComponentVisible(true)
+    
+  }
 
   const aboutClick = (event) => {
     event.preventDefault()
@@ -28,6 +40,7 @@ export const NavMenu = (props) => {
   console.log(props)
   return (
     <div className="menuContainer">
+
       <div className="menuGrid">
         <div className="menuLogo">
           <p className="logoText">Chimneys GO</p>
@@ -38,7 +51,7 @@ export const NavMenu = (props) => {
               <p className="menuItemText">{props.user.username} Logout</p>
             </li>
             :
-            <li className="menuListItem" onClick={loginClick}>
+            <li className="menuListItem" onClick={toggleDDV}>
               <p className="menuItemText">Log In</p>
             </li>
           }
@@ -50,9 +63,18 @@ export const NavMenu = (props) => {
 
             <p name="" className="menuItemText">Project Info</p>
           </li>
-
         </ul>
 
+
+      </div>
+      <div className="maxWidthContainer" ref={ref}>
+        {isComponentVisible?
+          <div className="accountDropDownContainer">
+            <DropDownList  items={[{text:"Activity", onClickHandler: null}, {text:"Configure", onClickHandler: null}, {text:"Logout", onClickHandler: null}]}/>
+          </div>
+          :
+          <div/>
+        }
       </div>
     </div>
   )

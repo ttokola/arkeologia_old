@@ -1,0 +1,39 @@
+.dropDownContainer{
+  background: var(--secondary-color);
+  
+  width: fit-content;
+}
+
+.dropDownList{
+  
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropDownListItem{
+  cursor: pointer;
+  padding: 0px;
+  height: 100%;
+  display: block;
+  text-align: center;
+  align-self: center;
+  transition: 0s;
+  color: var(--effect-color);
+}
+
+.dropDownItemText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1.2em;
+  display: block;
+  font-weight: 500;
+  margin: 0px;
+  padding: 0.5em 2em;
+}
+
+.dropDownListItem:hover{
+  color: var(--primary-text-color);
+  transition: 0.5s;
+  background: var(--accent-color);
+  height: 100%;
+}

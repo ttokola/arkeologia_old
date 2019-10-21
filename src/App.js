@@ -11,13 +11,10 @@ import {initPosts} from "./reducers/postReducer"
 
 //import components
 import Notification from "./components/Notification"
-import LoginForm from "./components/LoginForm"
 import NavMenu from "./components/NavMenu"
-import About from "./components/About"
-import ProjectInfo from "./components/ProjectInfo"
-import MapContainerOpen from "./components/MapContainerOpen"
-
 import "./styles/containers.css"
+import ContentArea from "./components/ContentArea"
+
 
 
 const App = (props) => {
@@ -58,20 +55,7 @@ const App = (props) => {
         <Route path="/" render={({history}) => (
           <NavMenu history={history}/>
         )}/>
-        <Route exact path ="/" render={({history}) => (
-
-          <MapContainerOpen posts={props.posts}/>
-
-        )}/>
-        <Route path="/login" render={({history}) => (
-          <LoginForm history={history}/>
-        )}/>
-        <Route path="/about" render={({history}) => (
-          <About history={history}/>
-        )}/>
-        <Route path="/project-info" render={({history}) => (
-          <ProjectInfo history={history}/>
-        )}/>
+        <ContentArea/>
 
         {(props.notification.message !== null)?
           <Notification/>

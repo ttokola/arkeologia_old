@@ -6,6 +6,36 @@
       "passwordHash": "$2b$10$o/9R2YDNsyLoK9G2S37zZuf6EnHtITHZO5PLy5E5NnkBGECpyJ5lK",
       "activated": "true",
       "id": "1234"
+    },
+    {
+      "username": "maybe",
+      "password": "passw0rd",
+      "id": "IGZYjrf"
+    },
+    {
+      "username": "maybe",
+      "password": "passw0rd",
+      "id": "-iQ00C3"
+    },
+    {
+      "username": "maybe",
+      "password": "passw0rd",
+      "id": "DHpTI8j"
+    },
+    {
+      "username": "maybe",
+      "password": "passw0rd",
+      "id": "zFN4nvO"
+    },
+    {
+      "username": "maybe",
+      "password": "passw0rd",
+      "id": "NLP6BWL"
+    },
+    {
+      "username": "testing",
+      "password": "asdasd",
+      "id": "Citt3-j"
     }
   ],
   "posts": [
@@ -140,6 +170,28 @@
         "lng": 25.464763641357422
       },
       "id": 11
+    },
+    {
+      "author": "Niklas",
+      "title": "PLACEHOLDER TITLE",
+      "story": "PLACEHOLDER STORY",
+      "image": null,
+      "location": {
+        "lat": 65.91510714242271,
+        "lng": 25.323486328125004
+      },
+      "id": 12
+    },
+    {
+      "author": "Niklas",
+      "title": "PLACEHOLDER TITLE",
+      "story": "PLACEHOLDER STORY",
+      "image": null,
+      "location": {
+        "lat": 64.56731900988225,
+        "lng": 25.026855468750004
+      },
+      "id": 13
     }
   ]
 }

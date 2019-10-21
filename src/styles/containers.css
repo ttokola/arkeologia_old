@@ -11,3 +11,28 @@ html, body, #root, #app, #app>div {
   display: flex;
   flex-direction: column;
 }
+
+.popUpContainer{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+
+.popUpBackground{
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+
+.contentContainer{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  z-index: 1;
+}
