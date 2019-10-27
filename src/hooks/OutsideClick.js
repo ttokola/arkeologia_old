@@ -1,3 +1,4 @@
+// By: Niklas Impiö
 import {useState, useEffect, useRef} from "react"
 
 //https://stackoverflow.com/questions/32553158/detect-click-outside-react-component

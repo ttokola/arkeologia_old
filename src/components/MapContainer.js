@@ -1,3 +1,4 @@
+// By: Niklas Impiö
 import React, {Component, useState} from "react"
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from "google-maps-react"
 

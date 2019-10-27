@@ -10,87 +10,51 @@
     {
       "username": "maybe",
       "password": "passw0rd",
-      "id": "IGZYjrf"
-    },
-    {
-      "username": "maybe",
-      "password": "passw0rd",
-      "id": "-iQ00C3"
-    },
-    {
-      "username": "maybe",
-      "password": "passw0rd",
-      "id": "DHpTI8j"
-    },
-    {
-      "username": "maybe",
-      "password": "passw0rd",
-      "id": "zFN4nvO"
-    },
-    {
-      "username": "maybe",
-      "password": "passw0rd",
-      "id": "NLP6BWL"
-    },
-    {
-      "username": "testing",
-      "password": "asdasd",
-      "id": "Citt3-j"
+      "id": "gOF2elj"
     }
   ],
   "posts": [
     {
-      "title": "Big Chimney",
       "author": "Niklas",
-      "story": "This is a placeholder story that is part of the post. Maybe I will make it a bit longer for no reason at all.",
-      "image": "null",
+      "title": "PLACEHOLDER TITLE",
+      "story": "PLACEHOLDER STORY",
+      "image": null,
       "location": {
-        "lat": 65.025551,
-        "lng": 25.471288
-      },
-      "id": 0
-    },
-    {
-      "title": "Small Chimney",
-      "author": "Niklas",
-      "story": "This is a placeholder story that is part of the post. Maybe I will make it a bit longer for no reason at all.",
-      "image": "null",
-      "location": {
-        "lat": 65.015477,
-        "lng": 25.47219
+        "lat": 65.01027033510553,
+        "lng": 25.46665191650391
       },
       "id": 1
     },
     {
-      "title": "Weird Chimney",
       "author": "Niklas",
-      "story": "This is a placeholder story that is part of the post. Maybe I will make it a bit longer for no reason at all.",
-      "image": "null",
+      "title": "PLACEHOLDER TITLE",
+      "story": "PLACEHOLDER STORY",
+      "image": null,
       "location": {
-        "lat": 65.058892,
-        "lng": 25.465208
+        "lat": 64.97442174152317,
+        "lng": 25.508022308349613
       },
       "id": 2
     },
     {
-      "title": "Suggestive Chimney",
       "author": "Niklas",
-      "story": "This is a placeholder story that is part of the post. Maybe I will make it a bit longer for no reason at all.",
-      "image": "null",
+      "title": "PLACEHOLDER TITLE",
+      "story": "PLACEHOLDER STORY",
+      "image": null,
       "location": {
-        "lat": 65.045375,
-        "lng": 25.435562
+        "lat": 65.00925504498967,
+        "lng": 25.54183959960938
       },
       "id": 3
     },
     {
-      "title": "Ugly Chimney",
       "author": "Niklas",
-      "story": "This is a placeholder story that is part of the post. Maybe I will make it a bit longer for no reason at all.",
-      "image": "null",
+      "title": "PLACEHOLDER TITLE",
+      "story": "PLACEHOLDER STORY",
+      "image": null,
       "location": {
-        "lat": 65.003898,
-        "lng": 25.459645
+        "lat": 64.96345437521457,
+        "lng": 25.543212890625004
       },
       "id": 4
     },
@@ -100,8 +64,8 @@
       "story": "PLACEHOLDER STORY",
       "image": null,
       "location": {
-        "lat": 65.00718808512505,
-        "lng": 25.479440689086918
+        "lat": 65.02723447090285,
+        "lng": 25.46665191650391
       },
       "id": 5
     },
@@ -111,87 +75,70 @@
       "story": "PLACEHOLDER STORY",
       "image": null,
       "location": {
-        "lat": 65.00907373912145,
-        "lng": 25.484547615051273
+        "lat": 65.04541906327732,
+        "lng": 25.52055358886719
       },
       "id": 6
     },
     {
-      "author": "Niklas",
-      "title": "PLACEHOLDER TITLE",
-      "story": "PLACEHOLDER STORY",
+      "author": null,
+      "title": "Testing",
+      "story": "Stuff",
       "image": null,
       "location": {
-        "lat": 65.0160893783731,
-        "lng": 25.495018959045414
+        "lat": 64.9545349,
+        "lng": 25.5212978,
+        "heading": null
       },
       "id": 7
     },
     {
-      "author": "Niklas",
-      "title": "PLACEHOLDER TITLE",
-      "story": "PLACEHOLDER STORY",
+      "author": null,
+      "title": "",
+      "story": "",
       "image": null,
       "location": {
-        "lat": 65.01139436128175,
-        "lng": 25.47480583190918
+        "lat": 64.9545349,
+        "lng": 25.5212978,
+        "heading": null
       },
       "id": 8
     },
     {
-      "author": "Niklas",
-      "title": "PLACEHOLDER TITLE",
-      "story": "PLACEHOLDER STORY",
+      "author": null,
+      "title": "",
+      "story": "",
       "image": null,
       "location": {
-        "lat": 65.00221947462497,
-        "lng": 25.491456985473633
+        "lat": 64.9545349,
+        "lng": 25.5212978,
+        "heading": null
       },
       "id": 9
     },
     {
-      "author": "Niklas",
-      "title": "PLACEHOLDER TITLE",
-      "story": "PLACEHOLDER STORY",
+      "author": null,
+      "title": "asd",
+      "story": "",
       "image": null,
       "location": {
-        "lat": 65.01980945714696,
-        "lng": 25.46437740325928
+        "lat": 64.9545349,
+        "lng": 25.5212978,
+        "heading": null
       },
       "id": 10
     },
     {
-      "author": "Niklas",
-      "title": "PLACEHOLDER TITLE",
-      "story": "PLACEHOLDER STORY",
+      "author": null,
+      "title": "asd",
+      "story": "",
       "image": null,
       "location": {
-        "lat": 65.00751445784397,
-        "lng": 25.464763641357422
+        "lat": 64.9545349,
+        "lng": 25.5212978,
+        "heading": null
       },
       "id": 11
-    },
-    {
-      "author": "Niklas",
-      "title": "PLACEHOLDER TITLE",
-      "story": "PLACEHOLDER STORY",
-      "image": null,
-      "location": {
-        "lat": 65.91510714242271,
-        "lng": 25.323486328125004
-      },
-      "id": 12
-    },
-    {
-      "author": "Niklas",
-      "title": "PLACEHOLDER TITLE",
-      "story": "PLACEHOLDER STORY",
-      "image": null,
-      "location": {
-        "lat": 64.56731900988225,
-        "lng": 25.026855468750004
-      },
-      "id": 13
     }
   ]
 }

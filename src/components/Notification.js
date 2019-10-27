@@ -1,3 +1,4 @@
+// By: Niklas Impiö
 import React from "react"
 import {connect} from "react-redux"
 import {cancelNotification} from "../reducers/notificationReducer"

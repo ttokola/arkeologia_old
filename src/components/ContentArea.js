@@ -1,6 +1,7 @@
-import React, {useEffect} from "react"
+// By: Niklas Impiö
+import React from "react"
 import {connect} from "react-redux"
-import {Route, BrowserRouter as Router} from "react-router-dom"
+import {Route} from "react-router-dom"
 
 import LoginForm from "./LoginForm"
 
@@ -13,6 +14,7 @@ import PopUpContainer from "./PopUpContainer"
 
 
 import {notify} from "../reducers/notificationReducer"
+import NewPost from "./NewPost"
 
 const ContentArea = (props) => {
 
@@ -20,7 +22,7 @@ const ContentArea = (props) => {
     <div className="contentContainer">
       <Route path ="/" render={({history}) => (
 
-        <MapContainerOpen posts={props.posts}/>
+        <MapContainerOpen posts={props.posts} history={history}/>
 
       )}/>
       <Route path="/login" render={({history}) => (
@@ -30,10 +32,19 @@ const ContentArea = (props) => {
 
       )}/>
       <Route path="/about" render={({history}) => (
-        <About history={history}/>
+        <PopUpContainer history={history}>
+          <About history={history}/>
+        </PopUpContainer>
       )}/>
       <Route path="/project-info" render={({history}) => (
-        <ProjectInfo history={history}/>
+        <PopUpContainer history={history}>
+          <ProjectInfo history={history}/>
+        </PopUpContainer>
+      )}/>
+      <Route path="/new-post" render={({history}) => (
+        <PopUpContainer history={history}>
+          <NewPost history={history}/>
+        </PopUpContainer>
       )}/>
 
     </div>

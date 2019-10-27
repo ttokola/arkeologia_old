@@ -1,4 +1,4 @@
-//import store from "../store"
+// By: Niklas Impiö
 
 const initialState = {message: null, error: false, seconds: 0, cancel: null}
 

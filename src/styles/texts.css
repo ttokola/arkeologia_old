@@ -1,0 +1,5 @@
+.normalText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--primary-text-color);
+  font-weight: 500;
+}

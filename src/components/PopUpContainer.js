@@ -1,3 +1,4 @@
+// By: Niklas Impiö
 import React from "react"
 
 import "../styles/containers.css"
@@ -5,9 +6,11 @@ import "../styles/containers.css"
 
 
 const PopUpContainer = (props) => {
+  //currently blocks onsubmit events inside the container???
+  //it was event.preventdefault on unfocusClick function
 
   const unfocusClick = (event) => {
-    event.preventDefault()
+    //event.preventDefault()
     if(event.target.id === "popUpBackground"){
       props.history.goBack()
       console.log("unfocus click")

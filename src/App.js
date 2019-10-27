@@ -1,4 +1,5 @@
-import React, {useEffect} from "react"
+// By: Niklas Impiö
+import React, {useEffect, useState} from "react"
 import {connect} from "react-redux"
 import {Route, BrowserRouter as Router} from "react-router-dom"
 
@@ -19,9 +20,12 @@ import ContentArea from "./components/ContentArea"
 
 const App = (props) => {
   //do stuff when initialized
+  const [postsInited, setPostsInited] = useState(false)
+  const [userInited, setUserInited] = useState(false)
   useEffect(() => {
     console.log("app hook")
     const loggedUserJSON = window.localStorage.getItem("loggedUser")
+
 
     if(loggedUserJSON && !props.user){
       //init user if localstorage has user saved.
@@ -29,23 +33,15 @@ const App = (props) => {
       const user = JSON.parse(loggedUserJSON)
       props.initLoggedUser(user)
     }
-    if(props.posts.length === 0){
-      console.log("initing posts")
+    // needs a better way.
+    if(!postsInited){
+      console.log(props.posts.length)
       props.initPosts()
+      setPostsInited(true)
     }
+
     document.title = "Chimneys GO"
   }, [props])
-
-  const notifyClick = (event) => {
-    event.preventDefault()
-    console.log(props)
-    //notify parameters are (String:message, Boolean:error, int:duration in seconds)
-    props.notify("This is a notification.", false, 5)
-    //triggers 5 second non error notification with message "This is a notification."
-  }
-
-
-
 
   return (
     //returns what to render

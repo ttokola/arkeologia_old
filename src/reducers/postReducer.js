@@ -1,11 +1,14 @@
+// By: Niklas Impiö
 import postService from "../services/posts"
 
 const postReducer = (state = [], action) => {
   switch(action.type){
-  case "GET_ALL":
+  case "GET_ALL_POSTS":
     return state
-  case "INIT":
+  case "INIT_POSTS":
     return action.data
+  case "CREATE_POST":
+    return state.concat(action.data)
   default:
     return state
   }
@@ -16,12 +19,12 @@ export const initPosts = () => {
   return async dispatch => {
     const posts = await postService.getAllPosts()
     dispatch({
-      type: "INIT",
+      type: "INIT_POSTS",
       data: posts
     })
   }
 }
-
+/*
 export const getAllPosts = () => {
   console.log("getting posts")
   return dispatch => {
@@ -30,14 +33,16 @@ export const getAllPosts = () => {
     })
   }
 }
-
+*/
 export const createPost = (object) => {
   // {author, title, story, image, location}
+  console.log(object)
   return async dispatch => {
     const newPost = postService.createNew(object)
     dispatch({
       type: "CREATE_POST",
-      data: newPost
+      //might need to change this later, depending how the api works, currently the json-server doesn't return shit after posting, thats why redux isn't updating.
+      data: object
     })
   }
 }

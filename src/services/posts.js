@@ -1,3 +1,4 @@
+// By: Niklas Impiö
 import axios from "axios"
 //when running sepatate frontend
 const baseUrl = "http://localhost:3001/posts"

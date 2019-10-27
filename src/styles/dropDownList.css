@@ -1,7 +1,5 @@
 .dropDownContainer{
   background: var(--secondary-color);
-  
-  width: fit-content;
 }
 
 .dropDownList{
@@ -16,10 +14,10 @@
   padding: 0px;
   height: 100%;
   display: block;
-  text-align: center;
+  text-align: left;
   align-self: center;
   transition: 0s;
-  color: var(--effect-color);
+  color: var(--secondary-text-color);
 }
 
 .dropDownItemText{
@@ -27,8 +25,8 @@
   font-size: 1.2em;
   display: block;
   font-weight: 500;
-  margin: 0px;
-  padding: 0.5em 2em;
+  padding: 0.5em 1em;
+  margin: 0;
 }
 
 .dropDownListItem:hover{
