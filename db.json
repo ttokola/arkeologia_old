@@ -1,17 +1,5 @@
 {
   "login": [
-    {
-      "username": "maybe",
-      "name": "Niklas",
-      "passwordHash": "$2b$10$o/9R2YDNsyLoK9G2S37zZuf6EnHtITHZO5PLy5E5NnkBGECpyJ5lK",
-      "activated": "true",
-      "id": "1234"
-    },
-    {
-      "username": "maybe",
-      "password": "passw0rd",
-      "id": "gOF2elj"
-    }
   ],
   "posts": [
     {
@@ -46,99 +34,6 @@
         "lng": 25.54183959960938
       },
       "id": 3
-    },
-    {
-      "author": "Niklas",
-      "title": "PLACEHOLDER TITLE",
-      "story": "PLACEHOLDER STORY",
-      "image": null,
-      "location": {
-        "lat": 64.96345437521457,
-        "lng": 25.543212890625004
-      },
-      "id": 4
-    },
-    {
-      "author": "Niklas",
-      "title": "PLACEHOLDER TITLE",
-      "story": "PLACEHOLDER STORY",
-      "image": null,
-      "location": {
-        "lat": 65.02723447090285,
-        "lng": 25.46665191650391
-      },
-      "id": 5
-    },
-    {
-      "author": "Niklas",
-      "title": "PLACEHOLDER TITLE",
-      "story": "PLACEHOLDER STORY",
-      "image": null,
-      "location": {
-        "lat": 65.04541906327732,
-        "lng": 25.52055358886719
-      },
-      "id": 6
-    },
-    {
-      "author": null,
-      "title": "Testing",
-      "story": "Stuff",
-      "image": null,
-      "location": {
-        "lat": 64.9545349,
-        "lng": 25.5212978,
-        "heading": null
-      },
-      "id": 7
-    },
-    {
-      "author": null,
-      "title": "",
-      "story": "",
-      "image": null,
-      "location": {
-        "lat": 64.9545349,
-        "lng": 25.5212978,
-        "heading": null
-      },
-      "id": 8
-    },
-    {
-      "author": null,
-      "title": "",
-      "story": "",
-      "image": null,
-      "location": {
-        "lat": 64.9545349,
-        "lng": 25.5212978,
-        "heading": null
-      },
-      "id": 9
-    },
-    {
-      "author": null,
-      "title": "asd",
-      "story": "",
-      "image": null,
-      "location": {
-        "lat": 64.9545349,
-        "lng": 25.5212978,
-        "heading": null
-      },
-      "id": 10
-    },
-    {
-      "author": null,
-      "title": "asd",
-      "story": "",
-      "image": null,
-      "location": {
-        "lat": 64.9545349,
-        "lng": 25.5212978,
-        "heading": null
-      },
-      "id": 11
     }
   ]
 }
