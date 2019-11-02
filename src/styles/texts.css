@@ -3,3 +3,14 @@
   color: var(--primary-text-color);
   font-weight: 500;
 }
+
+.normalTextNoMargin{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--primary-text-color);
+  font-weight: 500;
+  margin: 0;
+}
+
+.textCenter{
+  text-align: center;
+}

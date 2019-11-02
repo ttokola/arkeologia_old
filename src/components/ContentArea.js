@@ -15,6 +15,8 @@ import PopUpContainer from "./PopUpContainer"
 
 import {notify} from "../reducers/notificationReducer"
 import NewPost from "./NewPost"
+import NewPostCombined from "./NewPostCombined"
+import PostView from "./PostView"
 
 const ContentArea = (props) => {
 
@@ -43,7 +45,12 @@ const ContentArea = (props) => {
       )}/>
       <Route path="/new-post" render={({history}) => (
         <PopUpContainer history={history}>
-          <NewPost history={history}/>
+          <NewPostCombined history={history}/>
+        </PopUpContainer>
+      )}/>
+      <Route exact path="/post-view/:id" render={({match,history}) => (
+        <PopUpContainer history={history}>
+          <PostView match={match} history={history}/>
         </PopUpContainer>
       )}/>
 

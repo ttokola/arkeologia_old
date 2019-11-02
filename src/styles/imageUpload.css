@@ -1,0 +1,46 @@
+.imageUploadContainer{
+  display: flex;
+  margin: 20px 0;
+
+}
+
+.imagePreviewContainer{
+  min-width: 320px;
+  width: 320px;
+  height: 180px;
+  display: flex;
+  
+  
+}
+
+.fileInput{
+
+}
+
+.previewText{
+  text-align: center;
+  margin: auto;
+
+}
+
+.selectImageContainer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  justify-content: space-between;
+}
+input[type="file"]{
+  display: none;
+}
+
+.previewImage{
+  height: auto;
+  width: auto;
+  max-width: 320px;
+  border-radius: 5px;
+}
+
+.marginAuto{
+  margin: auto;
+}

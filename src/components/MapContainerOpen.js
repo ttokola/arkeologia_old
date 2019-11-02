@@ -17,6 +17,7 @@ import {createPost} from "../reducers/postReducer"
 import {updateUserLocation} from "../reducers/userLocationReducer"
 
 import {usePosition} from "../hooks/LocationHook"
+import {setTempPost} from "../reducers/tempPostReducer"
 
 
 let defaultIcon = L.icon({
@@ -35,7 +36,7 @@ const userIcon = L.icon({
 //ADDING NEW POST DOESN'T UPDATE WITHOUT RELOAD!!!
 const MapContainerOpen = (props) => {
   //props has array of posts at props.posts
-  const [position, setPosition] = useState({lat: 65.003898, lng: 25.459645})
+  const [position, setPosition] = useState({lat: 65.01157565139543, lng: 25.470943450927738})
   const [zoom, setZoom] = useState(13)
   const [posts, setPosts] = useState([])
 
@@ -55,40 +56,38 @@ const MapContainerOpen = (props) => {
     }
     if(userLocation){
       console.log("centering map to user location")
-      console.log(userLocation)
       setPosition(userLocation)
     }
-
-
-
   }, [props, posts])
 
 
 
-  const onPostClick = (props) => {
+  const onPostClick = (post) => {
 
-    console.log(`Clicked post: ${props.title}`)
+    console.log(`Clicked post: ${post}`, post)
     //maybe use router to change url to post/id and that triggers post view pop up render.
+    props.history.push(`/post-view/${post.id}/`)
   }
 
-  const mapClick = (event) => {
-
-    console.log(event.latlng)
-  }
 
   const rightClick = (event) => {
     console.log("right click at ", event.latlng)
-    const newPost = {author:"Niklas", title:"PLACEHOLDER TITLE", story:"PLACEHOLDER STORY", image:null, location:event.latlng}
-    console.log(newPost)
-    props.createPost(newPost)
-    setPosts(posts.concat(newPost))
+
+    if(props.history.location.pathname === "/select-location/"){
+      const tempPost = {...props.tempPost}
+      tempPost.location = event.latlng
+      console.log(tempPost)
+      props.setTempPost(tempPost)
+      props.history.push("/new-post/")
+    }
     setPosition(event.latlng)
   }
+
 
   const newPostClick = (event) => {
     event.preventDefault()
     console.log("Adding new post")
-    props.history.push("/new-post")
+    props.history.push("/new-post/")
   }
 
   const scrollListener = (event) => {
@@ -97,7 +96,7 @@ const MapContainerOpen = (props) => {
   }
   return(
     <div className="mapContainer">
-      <Map className="fullscreenMap" center={position} zoom={zoom} onClick={mapClick} oncontextmenu={rightClick} onZoom={scrollListener}>
+      <Map className="fullscreenMap" center={position} zoom={zoom} oncontextmenu={rightClick} onZoom={scrollListener}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -105,7 +104,6 @@ const MapContainerOpen = (props) => {
 
         {posts.map((element, index) =>
           <Marker key={index} position={element.location} onClick={() => onPostClick(element)}>
-            <Popup>{element.title}<br />{element.story}</Popup>
           </Marker>
         )}
         {userLocation !== null?
@@ -128,7 +126,8 @@ const MapContainerOpen = (props) => {
 const mapStateToProps = (state) => {
   return {
     //maps state to props, after this you can for example call props.notification
-    userLocation: state.userLocation
+    userLocation: state.userLocation,
+    tempPost: state.tempPost
 
   }
 }
@@ -138,7 +137,8 @@ const mapDispatchToProps = {
   //notify (for example)
   notify,
   createPost,
-  updateUserLocation
+  updateUserLocation,
+  setTempPost
 
 }
 

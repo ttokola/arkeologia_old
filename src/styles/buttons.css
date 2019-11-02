@@ -8,6 +8,7 @@
   border: none;
   vertical-align: baseline;
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1em;
   margin: 0 .25em 0 .25em;
   padding: .78571429em 1.5em .78571429em;
   text-transform: none;
@@ -31,10 +32,11 @@
   transition: background 0s;
 }
 
-.positiveButton {
+.smallButton{
+  padding: 0.5em
+}
 
-  float: right;
-  margin: 0px;
+.positiveButton {
 }
 .positiveButton:hover {
   background: var(--accent-color-light) radial-gradient(circle, transparent 1%, var(--accent-color-light) 1%) center/15000%;
@@ -44,7 +46,6 @@
 .negativeButton {
   background: var(--accent-color-dark);
   color: var(--secondary-text-color);
-  float: right;
   transition: background 0s;
 }
 .negativeButton:hover {
@@ -56,5 +57,12 @@
 .fillButton{
   width: -webkit-fill-available;
   width: -moz-available;
+}
+
+.bigButton{
+  font-weight: 900;
+  font-size: 1em;
+  margin: 0;
+
 }
 

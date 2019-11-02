@@ -1,39 +1,23 @@
 {
   "login": [
+    {
+      "username": "test_user",
+      "password": "asdasd",
+      "id": 1
+    }
   ],
   "posts": [
     {
-      "author": "Niklas",
-      "title": "PLACEHOLDER TITLE",
-      "story": "PLACEHOLDER STORY",
-      "image": null,
+      "author": "test_user",
+      "title": "Example Post",
+      "story": "This Post was made created with New Post Choose On Map.",
+      "image": {},
       "location": {
-        "lat": 65.01027033510553,
-        "lng": 25.46665191650391
+        "lat": 65.01099551869925,
+        "lng": 25.47008514404297
       },
+      "date": 1572697670452,
       "id": 1
-    },
-    {
-      "author": "Niklas",
-      "title": "PLACEHOLDER TITLE",
-      "story": "PLACEHOLDER STORY",
-      "image": null,
-      "location": {
-        "lat": 64.97442174152317,
-        "lng": 25.508022308349613
-      },
-      "id": 2
-    },
-    {
-      "author": "Niklas",
-      "title": "PLACEHOLDER TITLE",
-      "story": "PLACEHOLDER STORY",
-      "image": null,
-      "location": {
-        "lat": 65.00925504498967,
-        "lng": 25.54183959960938
-      },
-      "id": 3
     }
   ]
 }

@@ -28,7 +28,8 @@ export const LivePost = (props) => {
       return
     }
     if(props.userLocation !== null){
-      props.createPost({author:props.user, title:titleField, story:storyField, image:null, location:props.userLocation})
+      //REMOVE DATE LATER, DONE IN BACKEND.
+      props.createPost({author:props.user.username, title:titleField, story:storyField, image:null, location:props.userLocation, date: new Date().getTime()})
 
       props.notify(`Post "${titleField}" created.`, false, 5)
       props.history.push("/")

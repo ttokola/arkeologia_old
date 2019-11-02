@@ -6,6 +6,7 @@ import notificationReducer from "./reducers/notificationReducer"
 import postReducer from "./reducers/postReducer"
 import loginReducer from "./reducers/loginReducer"
 import userLocationReducer from "./reducers/userLocationReducer"
+import tempPostReducer from "./reducers/tempPostReducer"
 
 //import reducers here
 
@@ -16,7 +17,8 @@ const reducer = combineReducers({
   notification: notificationReducer,
   posts: postReducer,
   user: loginReducer,
-  userLocation: userLocationReducer
+  userLocation: userLocationReducer,
+  tempPost: tempPostReducer
 
 })
 

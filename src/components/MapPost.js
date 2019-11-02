@@ -1,5 +1,5 @@
 // By: Niklas Impiö
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import {connect} from "react-redux"
 import "../styles/mapPost.css"
 import "../styles/buttons.css"
@@ -7,14 +7,26 @@ import "../styles/texts.css"
 
 import {createPost} from "../reducers/postReducer"
 import {notify} from "../reducers/notificationReducer"
+import {setTempPost} from "../reducers/tempPostReducer"
+import ImageUpload from "./ImageUpload"
 
 export const MapPost = (props) => {
   const [titleField, setTitleField] = useState("")
   const [storyField, setStoryField] = useState("")
+  const [image, setImage] = useState(null)
   const [location, setLocation] = useState(null)
   //const storyField = document.getElementsByClassName("input")[1]
 
+  useEffect(() => {
+    if(props.tempPost.state === 2){
+      console.log(props.tempPost)
+      setTitleField(props.tempPost.title)
+      setStoryField(props.tempPost.story)
+      setLocation(props.tempPost.location)
+      setImage(props.tempPost.image)
 
+    }
+  }, [props])
 
   const cancelClick = (event) => {
     event.preventDefault()
@@ -34,14 +46,30 @@ export const MapPost = (props) => {
       props.notify("Post needs a valid location.", true, 5)
       props.history.push("/")
     }
-    if(props.userLocation !== null){
-      props.createPost({author:props.user, title:titleField, story:storyField, image:null, location:location})
+    if(props.location !== null){
+      //REMOVE DATE LATER, DONE IN BACKEND.
+      console.log(location)
+      props.createPost({author:props.user.username, title:titleField, story:storyField, image:null, location:location, date: new Date().getTime()})
 
       props.notify(`Post "${titleField}" created.`, false, 5)
+      setStoryField("")
+      setTitleField("")
+      setLocation(null)
+      setImage(null)
+      props.setTempPost({"state":0, "title": titleField, "story":storyField, "location":location, "image": image})
+
       props.history.push("/")
     }else{
-      props.notify("Live Post needs access to your location.", true, 5)
+      props.notify("Location not selected.", true, 5)
     }
+
+  }
+
+  const selectOnMap = (event) => {
+    event.preventDefault()
+    props.setTempPost({"state":1, "title": titleField, "story":storyField, "location":location, "image": image})
+    props.history.push("/select-location/")
+    props.notify("Right Click the Map to Select the Location for the Post.", false, 10)
 
   }
 
@@ -60,14 +88,15 @@ export const MapPost = (props) => {
       {location?
         <div>
           <p className="normalText">Currently selected Location: {`[ ${location.lat}, ${location.lng} ]`}</p>
-          <button className="rippleButton fillButton">Re-Select Location</button>
+          <button className="rippleButton fillButton" onClick={selectOnMap}>Re-Select Location</button>
         </div>
         :
         <div>
-          <button className="rippleButton fillButton">Select Location</button>
+          <button className="rippleButton fillButton" onClick={selectOnMap}>Select Location</button>
         </div>
 
       }
+      <ImageUpload/>
       <div className="imageInputContainer">
         <button className="rippleButton fillButton">Access Camera</button>
         <button className="rippleButton fillButton">Access Gallery</button>
@@ -101,7 +130,8 @@ const mapStateToProps = (state) => {
   return {
     //maps state to props, after this you can for example call props.notification
     user: state.user,
-    userLocation: state.userLocation
+    tempPost: state.tempPost
+
 
   }
 }
@@ -110,7 +140,8 @@ const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   //notify (for example)
   notify,
-  createPost
+  createPost,
+  setTempPost
 }
 
 export default connect(
