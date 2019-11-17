@@ -7,6 +7,8 @@ import postReducer from "./reducers/postReducer"
 import loginReducer from "./reducers/loginReducer"
 import userLocationReducer from "./reducers/userLocationReducer"
 import tempPostReducer from "./reducers/tempPostReducer"
+import projectReducer from "./reducers/projectReducer"
+import settingsReducer from "./reducers/settingsReducer"
 
 //import reducers here
 
@@ -18,7 +20,9 @@ const reducer = combineReducers({
   posts: postReducer,
   user: loginReducer,
   userLocation: userLocationReducer,
-  tempPost: tempPostReducer
+  tempPost: tempPostReducer,
+  projects: projectReducer,
+  settings: settingsReducer
 
 })
 

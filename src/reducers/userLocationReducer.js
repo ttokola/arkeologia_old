@@ -1,10 +1,10 @@
 // By: Niklas Impiö
 const initialState = {}
 
+//stores the users location if the user allows location access. By saving the location to redux state all components can access the same
+//location with only one hw location query. (Location hook can be found in hooks folder. Currently updates every 5 secs)
 const userLocationReducer = (state = initialState, action) => {
   switch(action.type){
-  case "INIT_USER_LOCATION":
-    return action.data
   case "SET_USER_LOCATION":
     return action.data
   default:

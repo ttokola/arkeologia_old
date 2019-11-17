@@ -9,7 +9,7 @@ import {notify} from "../reducers/notificationReducer"
 import {setTempPost} from "../reducers/tempPostReducer"
 import ImageUpload from "./ImageUpload"
 
-//combined new post where everything is in a single tab. Toggle buttons for which location selection method chosen
+//combined new post where everything is in a single window. Toggle buttons for which location selection method chosen.
 // aka if "live location" button is highlighted the it uses your current location. if map button highlighted then it uses selected location.
 
 export const NewPostCombined = (props) => {
@@ -92,7 +92,7 @@ export const NewPostCombined = (props) => {
     props.setTempPost({"title": "", "story":"", "location":null, "image": null, "useLive": true})
 
     props.history.push("/")
-    
+
 
   }
 
@@ -102,7 +102,7 @@ export const NewPostCombined = (props) => {
     event.preventDefault()
     props.setTempPost({"title": titleField, "story":storyField, "location":location, "image": image, "useLive": false})
     props.history.push("/select-location/")
-    props.notify("Right Click the Map to Select the Location for the Post.", false, 10)
+    props.notify("Click on the map to choose a location for the post.", false, 10)
   }
 
   const TitleFieldChangeHandler = (event) => {
@@ -117,25 +117,25 @@ export const NewPostCombined = (props) => {
 
   return(
     <div className="newPostContainer centerAlign">
-      <p className="headerText">New POST</p>
+      <p className="headerText">{props.settings.strings["new_post"]}</p>
       {useLiveLocation?
         <div className="newPostTabSwitchContainer">
-          <button className="rippleButton positiveButton fillButton" onClick={useLiveLocationClick}>Use Your Current Location</button>
-          <button className="rippleButton negativeButton fillButton" onClick={selectOnMap}>Choose on Map</button>
+          <button className="rippleButton positiveButton fillButton" onClick={useLiveLocationClick}>{props.settings.strings["use_your_current_location"]}</button>
+          <button className="rippleButton negativeButton fillButton" onClick={selectOnMap}>{props.settings.strings["choose_on_map"]}</button>
         </div>
         :
         <div className="newPostTabSwitchContainer">
-          <button className="rippleButton negativeButton fillButton" onClick={useLiveLocationClick}>Use Your Current Location</button>
-          <button className="rippleButton positiveButton fillButton" onClick={selectOnMap}>Re-Choose on Map</button>
+          <button className="rippleButton negativeButton fillButton" onClick={useLiveLocationClick}>{props.settings.strings["use_your_current_location"]}</button>
+          <button className="rippleButton positiveButton fillButton" onClick={selectOnMap}>{props.settings.strings["re_choose_on_map"]}</button>
         </div>
       }
       {location && useLiveLocation?
-        <p className="normalText textCenter">Using Your Current Location: {`{ ${location.lat}, ${location.lng} }`}</p>
+        <p className="normalText textCenter">{`{ ${props.settings.strings["using_your_current_location"]} ${location.lat}, ${location.lng} }`}</p>
         :
         <div/>
       }
       {location && !useLiveLocation?
-        <p className="normalText textCenter">Using Selected Location: {`{ ${location.lat}, ${location.lng} }`}</p>
+        <p className="normalText textCenter">{`{ ${props.settings.strings["using_selected_location"]} ${location.lat}, ${location.lng} }`}</p>
         :
         <div/>
       }
@@ -143,17 +143,17 @@ export const NewPostCombined = (props) => {
       <ImageUpload/>
       <form className="postForm" onSubmit={confirmPost}>
         <div className="inputContainer">
-          <input name="title" id="titleField" className="input" placeholder="Title" maxLength="32" autoComplete="off" onChange={TitleFieldChangeHandler} value={titleField}/>
+          <input name="title" id="titleField" className="input" placeholder={props.settings.strings["title"]} maxLength="32" autoComplete="off" onChange={TitleFieldChangeHandler} value={titleField}/>
           <div className="inputFocusLine"/>
         </div>
         <div className="inputContainer">
-          <textarea name="story" id="storyField" className="input" rows="4" placeholder="Desciption/Story" maxLength="256" autoComplete="off" onChange={StoryFieldChangeHandler} value={storyField}/>
+          <textarea name="story" id="storyField" className="input" rows="4" placeholder={props.settings.strings["description"]} maxLength="256" autoComplete="off" onChange={StoryFieldChangeHandler} value={storyField}/>
           <div className="inputFocusLine"/>
         </div>
 
         <div className="postFormButtonContainer">
-          <button className="rippleButton negativeButton fillButton" onClick={cancelClick}>Cancel</button>
-          <button className="rippleButton positiveButton fillButton">Submit</button>
+          <button className="rippleButton negativeButton fillButton" onClick={cancelClick}>{props.settings.strings["cancel"]}</button>
+          <button className="rippleButton positiveButton fillButton">{props.settings.strings["submit"]}</button>
         </div>
       </form>
     </div>
@@ -166,7 +166,8 @@ const mapStateToProps = (state) => {
     //maps state to props, after this you can for example call props.notification
     user: state.user,
     tempPost: state.tempPost,
-    userLocation: state.userLocation
+    userLocation: state.userLocation,
+    settings: state.settings
   }
 }
 

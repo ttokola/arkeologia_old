@@ -17,6 +17,25 @@ const getAllPosts = async () => {
   return response.data
 }
 
+const getAllPostsForProject = async (projectName) => {
+  const response = await axios.get(`${baseUrl}/${projectName}/fullPosts`)
+  console.log("get all posts")
+  return response.data
+}
+
+const getPostById = async (project, id) => {
+  //TODO get full post with story and details with project and id
+
+}
+
+const createNewPost = async (postObject, projectName) =>{
+  const config = {
+    headers: {"Authorization": token}
+  }
+  const response = await axios.post(`${baseUrl}/${projectName}/fullPosts`, postObject, config)
+  return response
+}
+
 const createNew = async (object) => {
   // {author, title, story, image, location}
   //position = {lat: 65.0348, lng: 25.468}

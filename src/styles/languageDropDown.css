@@ -1,52 +1,50 @@
-.dropDownSelectContainer{
+.languageDDContainer{
   background: var(--secondary-color);
   justify-content: center;
-  grid-area: center;
   width: 100%;
   height: fit-content;
   height: -moz-fit-content;
-  margin: 6px 0 0 0;
+  margin: auto;
 
   text-align: left;
-  border: 2px solid transparent;
 
   -webkit-user-select: none;
   -moz-user-select: none;
 
 }
-.dropDownSelectContainer:hover{
-  border: 2px solid var(--secondary-text-color);
-  border-radius: 5px;
-  margin: 6px 0 0 0;
+.languageDDContainer:hover .languageDDCurrentItem{
+  color: var(--primary-text-color)
 }
 
-.dropDownSelectContainerActive{
+.languageDDContainer:hover .dropDownIcon{
+  fill: var(--primary-text-color)
+}
+
+.languageDDContainerActive{
   background: var(--secondary-color);
   justify-content: center;
-  grid-area: center;
+
   width: 100%;
+  margin: 8px 0 0 0;
   height: fit-content;
   height: -moz-fit-content;
-  margin: 6px 0 0 0;
-
   text-align: left;
-  border: 2px solid var(--secondary-text-color);
-  border-radius: 5px;
-
 }
 
 
 
-.dropDownSelectCurrentItemContainer{
+
+
+.languageDDCurrentItemContainer{
   display: flex;
   height: 3em;
-  margin: 0 5px;
   flex-direction: column;
   justify-content: center;
+  margin: 0 0 0 5px;
   
 }
 
-.dropDownSelectItem{
+.languageDDItem{
   cursor: pointer;
   padding: 0px;
   height: 100%;
@@ -56,7 +54,7 @@
   color: var(--secondary-text-color);
 }
 
-.dropDownSelectCurrentItem{
+.languageDDCurrentItem{
   cursor: pointer;
   display: table;
   padding: 0px;
@@ -65,16 +63,28 @@
   color: var(--secondary-text-color);
 }
 
-.dropDownSelectText{
+.languageDDText{
   display:table-cell;
   vertical-align: middle;
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   font-size: 1.2em;
   font-weight: 500;
   text-align: left;
+  width: fit-content;
 }
 
-.dropDownIcon{
+.languageDDTextActive{
+  display:table-cell;
+  vertical-align: middle;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  text-align: left;
+  width: fit-content;
+  color: var(--primary-text-color);
+}
+
+.languageDDIcon{
   padding: 0;
   margin: 0;
   float: right;
@@ -85,11 +95,8 @@
   background: url("../resources/arrow_drop_down-24px.svg") no-repeat center right var(--secondary-text-color);
 }
 
-.dropDownListContainer{
-  background: blue;
-}
-
 .divider{
   height: 2px;
   background: var(--secondary-text-color);
 }
+

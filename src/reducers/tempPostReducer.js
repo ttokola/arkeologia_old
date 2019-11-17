@@ -5,8 +5,6 @@
 // states: 0 = nothing is happening yet. 1 = waiting for the user to select coordinates from map. 2=
 const tempPostReducer = (state = {"title": "", "story":"", "location":null, "image": null, "useLive": true}, action) => {
   switch(action.type){
-  case "GET_TEMP_POST":
-    return state
   case "SET_TEMP_POST":
     return action.data
   default:
@@ -23,7 +21,6 @@ export const setTempPost = (object) => {
   }
 
 }
-
 
 
 export default tempPostReducer

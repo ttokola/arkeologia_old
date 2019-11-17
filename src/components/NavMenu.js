@@ -7,35 +7,48 @@ import {notify} from "../reducers/notificationReducer"
 
 import "../styles/navMenu.css"
 
-import DropDownSelect from "./DropDownSelect"
+import ProjectDropDown from "./ProjectDropDown"
 import HorizontalMenuList from "./HorizontalMenuList"
 
+
 export const NavMenu = (props) => {
+  //Nav menu container component that has the menu components embedded.
 
-
+  const toProjectMenu = (event) => {
+    event.preventDefault()
+    props.history.push("/project-info/")
+  }
   const toRoot = (event) => {
+    //pushes url route to root or "/", might change later when different projects implemented.
     event.preventDefault()
     props.history.push("/")
   }
   return (
     <div className="menuContainer">
-
-      <div className="menuGrid">
-        <div className="menuLogo" onClick={toRoot}>
-          <p className="logoText">Chimneys GO</p>
+      <div className="menuInnerContainer">
+        <div className="menuLogo" >
+          <p className="logoText" onClick={toRoot}>Chimneys GO</p>
         </div>
-        <DropDownSelect currentlySelected={"Project 0"}/>
+        <div className="projectSelectContainer">
+
+          <ProjectDropDown/>
+          <div className="projectInfoButtonContainer">
+            <button className="projectInfoButton" onClick={toProjectMenu}>{props.settings.strings["project_info"]}</button>
+          </div>
+        </div>
         <HorizontalMenuList history={props.history}/>
       </div>
     </div>
+
+
   )
 }
 
 const mapStateToProps = (state) => {
   return {
     //maps state to props, after this you can for example call props.notification
-    user: state.user
-
+    user: state.user,
+    settings: state.settings
   }
 }
 

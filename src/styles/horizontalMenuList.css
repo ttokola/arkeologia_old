@@ -1,7 +1,18 @@
 .horizontalMenuContainer{
   display: flex;
   flex-direction: column;
-  grid-area: right;
+  grid-area: navMenu;
+  width: 100%;
+  max-width: 36%;
+  height: 4em;
+}
+
+.horizontalMenuContainerLogged{
+  display: flex;
+  flex-direction: column;
+  grid-area: navMenu;
+  width: 100%;
+  max-width: 25%;
   height: 4em;
 }
 
@@ -21,14 +32,14 @@
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   font-size: 1.2em;
   display: block;
-  font-weight: 500;
+  font-weight: 600;
   margin: auto;
 }
 .menuListItem{
   cursor: pointer;
   float: right;
   margin: 0px;
-  padding: 0px 15px;
+  padding: 0px 10px;
   height: 4em;
   display: flex;
   text-align: center;
@@ -51,13 +62,24 @@
   top: 4em;
 }
 
-.dropDownIcon{
+
+
+.personIcon{
   padding: 0;
   margin: auto;
-  float: right;
   fill: var(--secondary-text-color);
-  transition: 0s;
+  width: 2em;
+  height: 2em;
 }
+
+.personIconActive{
+  padding: 0;
+  margin: auto;
+  fill: var(--primary-text-color);
+  width: 2em;
+  height: 2em;
+}
+
 
 .accountItem{
   cursor: pointer;
@@ -77,6 +99,11 @@
   height: 4em;
 }
 .accountItem:hover .dropDownIcon{
+  fill: var(--primary-text-color);
+  transition: 0s;
+}
+
+.accountItem:hover .personIcon{
   fill: var(--primary-text-color);
   transition: 0s;
 }
@@ -121,11 +148,23 @@
   height: 4em;
 }
 
+.dropDownIcon{
+  padding: 0;
+  margin: auto;
+  float: right;
+  fill: var(--secondary-text-color);
+  transition: 0s;
+  width: 2em;
+  height: 2em;
+}
+
 .dropDownIconActive{
   padding: 0;
   margin: auto;
   float: right;
   fill: var(--primary-text-color);
-  transition: 0s; 
+  width: 2em;
+  height: 2em;
+  transition: 0s;
   transform: rotate(180deg);
 }

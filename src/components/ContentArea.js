@@ -14,11 +14,14 @@ import PopUpContainer from "./PopUpContainer"
 
 
 import {notify} from "../reducers/notificationReducer"
-import NewPost from "./NewPost"
 import NewPostCombined from "./NewPostCombined"
 import PostView from "./PostView"
 
 const ContentArea = (props) => {
+  // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
+  // Conditional rendering is done with react-router-dom Routes (URL address).
+
+  //this might get little more complicated when listview is added. Currently map is always on the bg so it simple.
 
   return (
     <div className="contentContainer">

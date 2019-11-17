@@ -14,6 +14,7 @@ export default function useComponentVisible(initialIsVisible) {
   }
 
   useEffect(() => {
+    //adds a click listener to the document, handle click outside checks if the reference component contains the clicked element etc. read the stackowerflow explanation.
     document.addEventListener("click", handleClickOutside, true)
     return () => {
       document.removeEventListener("click", handleClickOutside, true)

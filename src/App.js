@@ -9,6 +9,8 @@ import {Route, BrowserRouter as Router} from "react-router-dom"
 import {notify} from "./reducers/notificationReducer"
 import {login, logout, initLoggedUser} from "./reducers/loginReducer"
 import {initPosts} from "./reducers/postReducer"
+import {initProjects} from "./reducers/projectReducer"
+import {initSettings} from "./reducers/settingsReducer"
 
 //import components
 import Notification from "./components/Notification"
@@ -17,15 +19,29 @@ import "./styles/containers.css"
 import ContentArea from "./components/ContentArea"
 
 
-
 const App = (props) => {
   //do stuff when initialized
   const [postsInited, setPostsInited] = useState(false)
-  const [userInited, setUserInited] = useState(false)
+  const [projectsInitiated, setProjectsInitiated] = useState(false)
+  const [settingsInitiated, setSettingsInitiated] = useState(false)
+
+  //const [userInited, setUserInited] = useState(false)
   useEffect(() => {
     console.log("app hook")
     const loggedUserJSON = window.localStorage.getItem("loggedUser")
+    const settingsJSON = {language: window.localStorage.getItem("ChimneysGoLanguage"), theme: window.localStorage.getItem("ChimneysGoTheme")}
+    console.log(settingsJSON)
+    if(!settingsInitiated && settingsJSON){
+      props.initSettings(settingsJSON)
+      setSettingsInitiated(true)
+    }
 
+
+    if(!projectsInitiated && props.projects.active === null){
+      console.log("trigger")
+      props.initProjects()
+      setProjectsInitiated(true)
+    }
 
     if(loggedUserJSON && !props.user){
       //init user if localstorage has user saved.
@@ -34,9 +50,9 @@ const App = (props) => {
       props.initLoggedUser(user)
     }
     // needs a better way.
-    if(!postsInited){
+    if(!postsInited && props.projects.active){
       console.log(props.posts.length)
-      props.initPosts()
+      props.initPosts(props.projects.active)
       setPostsInited(true)
     }
 
@@ -47,20 +63,16 @@ const App = (props) => {
     //returns what to render
     <div className="appContainer">
       <Router>
-
         <Route path="/" render={({history}) => (
           <NavMenu history={history}/>
         )}/>
         <ContentArea/>
-
-        {(props.notification.message !== null)?
+        {props.notification.message !== null?
           <Notification/>
           :
           <div></div>
         }
-
       </Router>
-
     </div>
   )
 }
@@ -70,19 +82,21 @@ const mapStateToProps = (state) => {
     //maps state to props, after this you can for example call props.notification
     notification: state.notification,
     user: state.user,
-    posts: state.posts
+    posts: state.posts,
+    projects: state.projects
 
   }
 }
 
 const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
-  //notify (for example)
   notify,
   login,
   logout,
   initLoggedUser,
-  initPosts
+  initPosts,
+  initProjects,
+  initSettings
 
 }
 
