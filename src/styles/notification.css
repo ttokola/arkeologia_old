@@ -37,6 +37,8 @@
   transition: box-shadow 0s cubic-bezier(0.165, 0.84, 0.44, 1)
 
 }
+
+
 .notificationContainerInner:hover{
   box-shadow: 0 0 10px var(--accent-color-light);
   border-radius: 5px;
@@ -44,6 +46,14 @@
 
 }
 
+.notificationContainerInnerMobile{
+  background: var(--primary-color);
+  z-index: 5;
+  width: 100%;
+  height: fit-content;
+  position: fixed;
+  bottom: 0;
+}
 
 .notificationGrid{
   display: grid;

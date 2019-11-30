@@ -6,11 +6,13 @@ import "../styles/containers.css"
 
 
 const PopUpContainer = (props) => {
-  //currently blocks onsubmit events inside the container???
-  //it was event.preventdefault on unfocusClick function
+  /*
+  Container component for Pop Up windows/components.
+  Alpha layer (modal?) background that closes the pop up if clicked.
+  */
 
   const unfocusClick = (event) => {
-    //event.preventDefault()
+    //background click
     if(event.target.id === "popUpBackground"){
       props.history.goBack()
       console.log("unfocus click")

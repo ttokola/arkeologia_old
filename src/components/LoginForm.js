@@ -1,11 +1,11 @@
-import React from "react"
+import React, {useState} from "react"
 import {connect} from "react-redux"
 import {login} from "../reducers/loginReducer"
 import {notify} from "../reducers/notificationReducer"
 import "../styles/loginForm.css"
 
 export const LoginForm = (props) => {
-  //TEMP COMPONENT, might be replaced or expanded later.
+  const [forgotState, setForgotState] = useState(false)
 
   const attemptLogin = async (event) => {
     console.log("attempting login")
@@ -25,13 +25,49 @@ export const LoginForm = (props) => {
 
   }
 
-  return(
-    <div className="loginContainer centerAlign">
-      <p className="headerText bottomPadding30">{props.settings.strings["log_in"]}</p>
+  const recoverPassword = async (event) => {
+    //TODO
+  }
 
-      <form name="loginForm" onSubmit={attemptLogin}>
+  const toSignUp = (event) => {
+    event.preventDefault()
+    props.history.push("/sign-up")
+  }
+  const forgotClick = (event) => {
+    event.preventDefault()
+    setForgotState(!forgotState)
+  }
+  if(forgotState){
+
+    return(
+      <div className="loginContainer centerAlignWithPadding">
+        <h1 className="headerText bottomPadding30">{props.settings.strings["password_recovery"]}</h1>
+
+        <form className="loginForm" name="loginForm" onSubmit={recoverPassword}>
+          <div className="inputContainer">
+            <input name="username" className="input" placeholder={props.settings.strings["email"]} maxLength="32" autoComplete="off"/>
+            <div className="inputFocusLine"/>
+          </div>
+
+
+          <div className="buttonContainer">
+            <button className="negativeButton rippleButton" onClick={forgotClick}>{props.settings.strings["cancel"]}</button>
+            <button type="submit" className="positiveButton rippleButton" onClick={recoverPassword}>{props.settings.strings["confirm"]}</button>
+          </div>
+        </form>
+
+      </div>
+
+
+    )
+  }
+  return(
+    <div className="loginContainer centerAlignWithPadding">
+      <h1 className="headerText bottomPadding30">{props.settings.strings["log_in"]}</h1>
+
+      <form className="loginForm" name="loginForm" onSubmit={attemptLogin}>
         <div className="inputContainer">
-          <input name="username" className="input" placeholder={props.settings.strings["user_name"]} maxLength="32" autoComplete="off"/>
+          <input name="username" className="input" placeholder={props.settings.strings["email"]} maxLength="32" autoComplete="off"/>
           <div className="inputFocusLine"/>
         </div>
 
@@ -39,9 +75,14 @@ export const LoginForm = (props) => {
           <input name="password" className="input" type="password" placeholder={props.settings.strings["password"]} maxLength="64"/>
           <div className="inputFocusLine"></div>
         </div>
+        <p className="linkText" onClick={forgotClick}>{props.settings.strings["forgot_password"]}</p>
+        <p className="linkText" onClick={toSignUp}>{props.settings.strings["create_account"]}</p>
 
-        <button type="submit" className="positiveButton rippleButton">{props.settings.strings["log_in"]}</button>
-        <button className="negativeButton rippleButton" onClick={() => props.history.push("/")}>{props.settings.strings["cancel"]}</button>
+        <div className="buttonContainer">
+          <button className="negativeButton rippleButton" onClick={() => props.history.push("/")}>{props.settings.strings["cancel"]}</button>
+          <button type="submit" className="positiveButton rippleButton">{props.settings.strings["log_in"]}</button>
+        </div>
+
       </form>
 
     </div>

@@ -11,7 +11,14 @@
       "about": "About",
       "log_out": "Log Out",
       "log_in": "Log In",
+      "forgot_password": "Forgot Password?",
+      "password_recovery": "Password Recovery",
       "sign_up": "Sign Up",
+      "create_account": "Create Account",
+      "no_account_yet": "Don't have an account?",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "dob": "Date of Birth",
       "user_name": "User Name",
       "email": "Email",
       "password": "Password",
@@ -28,11 +35,21 @@
       "description": "Description",
       "story": "Story",
       "submit": "Submit",
+      "confirm": "Confirm",
       "choose_on_map_notification": "Click on the map to choose a location for the post.",
       "error": "Error",
       "logout_notification": "Logout Succesfull.",
       "confirm_location": "Confirm Location",
-      "no_location_selected": "No Location Selected"
+      "no_location_selected": "No Location Selected",
+      "close": "Close",
+      "show_on_map": "Show On Map",
+      "search": "Search",
+      "report": "Report",
+      
+      "tos_checkbox_text": "I Have Read and Agree to the Terms of Service.",
+      "tos_title": "Terms of Service",
+      "tos_text": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum \n Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum "
+    
     },
     "fi":{
       "project_info": "Projekti Info",
@@ -44,9 +61,16 @@
       "about": "Tietoa",
       "log_out": "Kirjaudu Ulos",
       "log_in": "Kirjaudu",
+      "forgot_password": "Unohditko Salasanasi?",
+      "password_recovery": "Salasanan Palautus",
       "sign_up": "Luo Tili",
+      "create_account": "Luo Tili",
+      "no_account_yet": "Ei Tiliä?",
       "user_name": "Käyttäjänimi",
       "password": "Salasana",
+      "first_name": "Etunimi",
+      "last_name": "Sukunimi",
+      "dob": "Syntymäaika",
       "cancel": "Peruuta",
       "use_your_current_location": "Käytä Nykyistä Sijaintiasi",
       "using_your_current_location": "Käytetään Nykyistä Sijaintiasi:",
@@ -60,11 +84,21 @@
       "description": "Kuvaus",
       "story": "Tarina",
       "submit": "Vahvista",
+      "confirm": "Vahvista",
       "choose_on_map_notification": "Valitse Sijainti Kartalta Klikkaamalla.",
       "error": "Virhe",
       "logout_notification": "Uloskirjautuminen Onnistui.",
       "confirm_location": "Vahvista Sijainti",
-      "no_location_selected": "Sijaintia Ei Valittu"
+      "no_location_selected": "Sijaintia Ei Valittu",
+      "close": "Sulje",
+      "show_on_map": "Näytä Kartalla",
+      "search": "Haku",
+      "report": "Ilmianna",
+
+      "tos_checkbox_text": "Olen Lukenut ja Hyväksyn Käyttöehdot.",
+      "tos_title": "Käyttöehdot",
+      "tos_text": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum \n Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum "
+
     }
   }
 }

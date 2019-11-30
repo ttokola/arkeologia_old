@@ -16,6 +16,8 @@ import PopUpContainer from "./PopUpContainer"
 import {notify} from "../reducers/notificationReducer"
 import NewPostCombined from "./NewPostCombined"
 import PostView from "./PostView"
+import ListView from "./ListView"
+import SignUp from "./SignUp"
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -23,13 +25,27 @@ const ContentArea = (props) => {
 
   //this might get little more complicated when listview is added. Currently map is always on the bg so it simple.
 
+
+  //Just add Routes below for "pages"
+  //Navigation can be done with props.history.push("/example-url/") [only the url after page name]
+  //use pop container for pop up pages
   return (
     <div className="contentContainer">
       <Route path ="/" render={({history}) => (
 
-        <MapContainerOpen posts={props.posts} history={history}/>
+        <MapContainerOpen history={history}/>
 
       )}/>
+      <Route path="/list-view/" render={({history}) => (
+        <ListView history={history}/>
+      )}/>
+      <Route path="/sign-up" render={({history}) => (
+        <PopUpContainer history={history}>
+          <SignUp history={history}/>
+        </PopUpContainer>
+
+      )}/>
+
       <Route path="/login" render={({history}) => (
         <PopUpContainer history={history}>
           <LoginForm history={history}/>
@@ -69,7 +85,7 @@ const mapStateToProps = (state) => {
     //maps state to props, after this you can for example call props.notification
     notification: state.notification,
     user: state.user,
-    posts: state.posts
+
 
   }
 }

@@ -12,7 +12,7 @@ import ImageUpload from "./ImageUpload"
 //combined new post where everything is in a single window. Toggle buttons for which location selection method chosen.
 // aka if "live location" button is highlighted the it uses your current location. if map button highlighted then it uses selected location.
 
-export const NewPostCombined = (props) => {
+export const NewPostMobile = (props) => {
   const [useLiveLocation, setUseLiveLocation] = useState(true)
   const [titleField, setTitleField] = useState("")
   const [storyField, setStoryField] = useState("")
@@ -181,4 +181,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(NewPostCombined)
+)(NewPostMobile)

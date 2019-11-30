@@ -1,0 +1,51 @@
+.signUpContainer{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  max-width: 1000px;
+  max-height: 800px;
+  border-radius: 5px;
+  margin:auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.signUpTitleContainer{
+  margin: 1em;
+}
+.signUpContainerInner{
+  
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+
+.signUpForm{
+  background: var(--primary-color);
+  width: 48%;
+  height: 100%;
+  border-radius: 5px;
+  padding: 10px;
+
+}
+
+.signUpTerms{
+  background: var(--primary-color);
+  width: 49%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.termsContainer{
+  margin: 10px;
+}
+
+
+
+

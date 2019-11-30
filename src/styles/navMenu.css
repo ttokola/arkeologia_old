@@ -6,6 +6,7 @@
   background: var(--secondary-color);
   -webkit-user-select: none;
   -moz-user-select: none;
+  box-shadow: 0 0 5px var(--accent-color);
 
 }
 

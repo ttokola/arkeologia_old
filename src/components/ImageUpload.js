@@ -6,6 +6,7 @@ import {notify} from "../reducers/notificationReducer"
 import {setTempPost} from "../reducers/tempPostReducer"
 
 import "../styles/imageUpload.css"
+import { read } from "fs"
 //inspiration from
 //https://codepen.io/hartzis/pen/VvNGZP
 export const ImageUpload = (props) => {
@@ -16,7 +17,7 @@ export const ImageUpload = (props) => {
   useEffect(() => {
     //hook for getting already filled fields from temp post if for example closed the pop up to choose new location on map.
     if(props.tempPost.image !== null && props.tempPost.image !== undefined){
-      const file = props.tempPost.image
+      const file = props.tempPost.image.file
       const reader = new FileReader()
       reader.onloadend = () => {
         setImage(file)
@@ -35,8 +36,9 @@ export const ImageUpload = (props) => {
     const file = event.target.files[0]
     reader.onloadend = () => {
       setImage(file)
-      setImagePreviewUrl(reader.result)
-      setTempPostImage(file)
+      let result = reader.result
+      setImagePreviewUrl(result)
+      setTempPostImage({file:file, data:reader.result})
     }
     reader.readAsDataURL(file)
   }

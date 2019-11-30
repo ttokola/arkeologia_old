@@ -1,0 +1,67 @@
+.listViewContainer{
+  background: var(--primary-color);
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+.listViewInnerContainer{
+  z-index: 4;
+  background: var(--primary-color);
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  max-width: 1200px;
+  max-height: 90%;
+  border-radius: 5px;
+  margin:auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+
+}
+
+
+.centerAlign{
+  margin: 0;
+  position: absolute;
+  padding: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centerAlignWithPadding{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.postListContainer{
+  width: 40%;
+  margin: 1%;
+  z-index: 4;
+  background: var(--secondary-color);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.postListContainerMobile{
+  width: 100%;
+  margin: 0;
+  z-index: 4;
+  background: var(--secondary-color);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.postPreviewContainer{
+  width: 60%;
+  margin: 1%;
+  height: 100%;
+}

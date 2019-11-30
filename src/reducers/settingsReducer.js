@@ -14,7 +14,7 @@ const changeThemeInCSS = (theme) => {
     document.documentElement.style.setProperty("--primary-text-color","#ffffff")
     document.documentElement.style.setProperty("--secondary-text-color","#a0a0a0")
     document.documentElement.style.setProperty("--accent-color","#383838")
-    document.documentElement.style.setProperty("--accent-color-dark","#1v1c1d")
+    document.documentElement.style.setProperty("--accent-color-dark","#1d1c1d")
     document.documentElement.style.setProperty("--accent-color-light","#808080")
     document.documentElement.style.setProperty("--effect-color","#cecece")
   }else{

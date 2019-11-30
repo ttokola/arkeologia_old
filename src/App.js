@@ -17,6 +17,8 @@ import Notification from "./components/Notification"
 import NavMenu from "./components/NavMenu"
 import "./styles/containers.css"
 import ContentArea from "./components/ContentArea"
+import ContentAreaMobile from "./componentsMobile/ContentAreaMobile"
+import NotificationMobile from "./componentsMobile/NotificationMobile"
 
 
 const App = (props) => {
@@ -24,6 +26,8 @@ const App = (props) => {
   const [postsInited, setPostsInited] = useState(false)
   const [projectsInitiated, setProjectsInitiated] = useState(false)
   const [settingsInitiated, setSettingsInitiated] = useState(false)
+
+  const isMobile = window.innerWidth <= 500
 
   //const [userInited, setUserInited] = useState(false)
   useEffect(() => {
@@ -59,22 +63,41 @@ const App = (props) => {
     document.title = "Chimneys GO"
   }, [props])
 
-  return (
-    //returns what to render
-    <div className="appContainer">
-      <Router>
-        <Route path="/" render={({history}) => (
-          <NavMenu history={history}/>
-        )}/>
-        <ContentArea/>
-        {props.notification.message !== null?
-          <Notification/>
-          :
-          <div></div>
-        }
-      </Router>
-    </div>
-  )
+  if(isMobile){
+    return(
+      <div className="appContainer">
+        <Router>
+          <Route path="/" render={({history}) => (
+            <ContentAreaMobile history={history}/>
+          )}/>
+
+          {props.notification.message !== null?
+            <NotificationMobile/>
+            :
+            <div></div>
+          }
+        </Router>
+      </div>
+    )
+  }else{
+    return (
+      //returns what to render
+      <div className="appContainer">
+        <Router>
+          <Route path="/" render={({history}) => (
+            <NavMenu history={history}/>
+          )}/>
+          <ContentArea/>
+          {props.notification.message !== null?
+            <Notification/>
+            :
+            <div></div>
+          }
+        </Router>
+      </div>
+    )
+  }
+
 }
 
 const mapStateToProps = (state) => {

@@ -1,0 +1,133 @@
+.postListContainerInner{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  border-radius: 5px;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.filterSortContainer{
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  max-width: 100%;
+  max-height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.postListList{
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0 0;
+  max-height: auto;
+  overflow:hidden; overflow-y:scroll;
+}
+
+.postListItem{
+  list-style-type: none;
+  cursor: pointer;
+  background: var(--primary-color);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px 5px;
+  padding: 10px;
+  transition: 0s;
+  border: 5px solid transparent;
+  
+}
+
+.postListItem:hover{
+  
+  transition: 0.2s;
+  border: 0 solid var(--accent-color);
+  border-left-width: 10px;
+  border-bottom-width: 10px;
+
+}
+
+.postListItemImageContainer{
+  width: 30%;
+  max-width: 30%;
+
+}
+
+.postListImagePreview{
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 5px;
+}
+.postListItemInfo{
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.postListTitle{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--primary-text-color);
+  font-weight: 700;
+  font-size: 1.4em;
+  margin: 0;
+}
+
+.postListText{
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: var(--primary-text-color);
+  font-weight: 500;
+  font-size: 1em;
+  margin: 0;
+}
+
+.searchInputContainer{
+  background: var(--secondary-color);
+  margin: 0;
+  padding: 5px;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border: none;
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1em;
+  resize: none;
+}
+
+ /* width */
+ ::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--accent-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color-light);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} 

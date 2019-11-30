@@ -3,7 +3,8 @@ import React, {useState, useEffect} from "react"
 import {connect} from "react-redux"
 import {Map, TileLayer, Marker, Popup} from "react-leaflet"
 import L from "leaflet"
-import "../styles/mapContainer.css"
+
+import "../stylesMobile/mapContainerMobile.css"
 import "leaflet/dist/leaflet.css"
 
 import icon from "../resources/marker-icon.png"
@@ -12,6 +13,8 @@ import iconShadow from "../resources/marker-shadow.png"
 
 import userIconMarker from "../resources/user_icon_custom.svg"
 import tempIconMarker from "../resources/temp_marker.svg"
+import {ReactComponent as AddIcon} from "../resources/add_circle.svg"
+import {ReactComponent as ListViewIcon} from "../resources/view_list.svg"
 
 import {notify} from "../reducers/notificationReducer"
 import {createPost} from "../reducers/postReducer"
@@ -40,7 +43,7 @@ const tempIcon = L.icon({
 })
 
 
-const MapContainerOpen = (props) => {
+const MapContainerMobile = (props) => {
   //state variables
   const [position, setPosition] = useState({lat: 65.01157565139543, lng: 25.470943450927738})
   const [tempMarker, setTempMarker] = useState(null)
@@ -120,8 +123,8 @@ const MapContainerOpen = (props) => {
     setZoom(event.target._zoom)
   }
   return(
-    <div className="mapContainer">
-      <Map className="fullscreenMap" center={position} zoom={zoom} onClick={leftClick} oncontextmenu={rightClick} onZoom={scrollListener}>
+    <div className="mapContainerMobile">
+      <Map className="fullscreenMap" zoomControl={false} center={position} zoom={zoom} onClick={leftClick} oncontextmenu={rightClick} onZoom={scrollListener}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -144,9 +147,16 @@ const MapContainerOpen = (props) => {
           <div/>
         }
       </Map>
-      <button className="overlayButtonLeft rippleButton" onClick={toListView}>{props.settings.strings["list_view"]}</button>
+      
       {props.history.location.pathname !== "/select-location/"?
-        <button className="overlayButtonRight rippleButton" onClick={newPostClick}>{props.settings.strings["new_post"]}</button>
+        <div>
+          <button className="mobileListViewButton" onClick={toListView}>
+            <ListViewIcon className="listIcon"/>
+          </button>
+          <button className="mobileNewButton" onClick={newPostClick}>
+            <AddIcon className="addIcon"/>
+          </button>
+        </div>
         :
         tempMarker === null?
           <button className="overlayButtonRight rippleButton" onClick={newPostClick}>{props.settings.strings["no_location_selected"]}</button>
@@ -182,4 +192,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MapContainerOpen)
+)(MapContainerMobile)

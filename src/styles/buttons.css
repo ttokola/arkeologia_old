@@ -37,6 +37,7 @@
 }
 
 .positiveButton {
+  background: var(--accent-color);
 }
 .positiveButton:hover {
   background: var(--accent-color-light) radial-gradient(circle, transparent 1%, var(--accent-color-light) 1%) center/15000%;
@@ -87,3 +88,26 @@
   
 }
 
+
+.mobileButtonContainer{
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: 0;
+  padding: 0;
+}
+
+.mobileIcon{
+  fill: var(--secondary-text-color);
+  width: 5em;
+  height: 5em;
+}
+
+.mobileIconSmall{
+  cursor: pointer;
+  fill: var(--primary-text-color);
+  stroke: none;
+  margin: 0.5em;
+  width: 2em;
+  height: 2em;
+}
