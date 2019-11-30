@@ -6,7 +6,8 @@ There is a lint config and some libraries added already, but we can discuss that
 To run this: 
 1. git clone https://github.com/maybet0morrow/software_project_front_end
 2. npm install
-3. npm start
+3. npm run server [optional to run the json-server]
+4. npm start
 
 
 Create React App README:
