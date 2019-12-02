@@ -18,6 +18,7 @@ import NewPostCombined from "./NewPostCombined"
 import PostView from "./PostView"
 import ListView from "./ListView"
 import SignUp from "./SignUp"
+import MyPosts from "./MyPosts"
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -32,12 +33,15 @@ const ContentArea = (props) => {
   return (
     <div className="contentContainer">
       <Route path ="/" render={({history}) => (
-
         <MapContainerOpen history={history}/>
-
       )}/>
+
+
       <Route path="/list-view/" render={({history}) => (
-        <ListView history={history}/>
+
+        <PopUpContainer history={history}>
+          <ListView history={history}/>
+        </PopUpContainer>
       )}/>
       <Route path="/sign-up" render={({history}) => (
         <PopUpContainer history={history}>
@@ -72,6 +76,12 @@ const ContentArea = (props) => {
           <PostView match={match} history={history}/>
         </PopUpContainer>
       )}/>
+      <Route path="/my-posts" render={({history}) => (
+        <PopUpContainer history={history}>
+          <MyPosts history={history}/>
+        </PopUpContainer>
+      )}/>
+
 
     </div>
 
