@@ -17,6 +17,16 @@
   box-shadow: 0 0 10px var(--accent-color-light)
 }
 
+.newPostContainerMobile{
+  background: var(--secondary-color);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
 .centerAlign{
   margin: 0;
   position: absolute;
@@ -76,5 +86,16 @@
 }
 .postFormButtonContainer{
   display: flex;
-  margin: 1em 0;
+  margin: 1em 0 0 0;
+}
+
+.postFormMobile{
+  width: 99%;
+  margin: 1%;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
 }

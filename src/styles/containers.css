@@ -66,11 +66,9 @@ html, body, #root, #app, #app>div {
 }
 
 .titleContainerMobile{
-  width: -webkit-fill-available;
-  width: -moz-available;
+  width: 100%;
+  height: fit-content;
   max-width: 100%;
-  max-height: 10%;
-  padding: 0 10px;
   margin: 0 0 2em 0;
   display: flex;
   flex-direction: row;
@@ -80,5 +78,12 @@ html, body, #root, #app, #app>div {
   display: flex;
   width: -webkit-fill-available;
   width: -moz-available;
+}
 
+.dualButtonContainer{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 1em 0;
+  justify-content: space-between;
 }

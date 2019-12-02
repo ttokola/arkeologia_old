@@ -7,7 +7,10 @@ import "../styles/buttons.css"
 import {createPost} from "../reducers/postReducer"
 import {notify} from "../reducers/notificationReducer"
 import {setTempPost} from "../reducers/tempPostReducer"
-import ImageUpload from "./ImageUpload"
+import ImageUploadMobile from "./ImageUploadMobile"
+
+import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
+
 
 //combined new post where everything is in a single window. Toggle buttons for which location selection method chosen.
 // aka if "live location" button is highlighted the it uses your current location. if map button highlighted then it uses selected location.
@@ -116,32 +119,39 @@ export const NewPostMobile = (props) => {
   }
 
   return(
-    <div className="newPostContainer centerAlignWithPadding">
-      <p className="headerText">{props.settings.strings["new_post"]}</p>
-      {useLiveLocation?
-        <div className="newPostTabSwitchContainer">
-          <button className="rippleButton positiveButton fillButton" onClick={useLiveLocationClick}>{props.settings.strings["use_your_current_location"]}</button>
-          <button className="rippleButton negativeButton fillButton" onClick={selectOnMap}>{props.settings.strings["choose_on_map"]}</button>
+    <div className="newPostContainerMobile">
+      <div>
+        <div className="titleContainerMobile">
+          <button className="mobileButtonContainer">
+            <ReturnIcon className="mobileIcon" onClick={() => props.history.goBack()}/>
+          </button>
+          <h1 className="titleTextMobile">{props.settings.strings["new_post"]}</h1>
         </div>
-        :
-        <div className="newPostTabSwitchContainer">
-          <button className="rippleButton negativeButton fillButton" onClick={useLiveLocationClick}>{props.settings.strings["use_your_current_location"]}</button>
-          <button className="rippleButton positiveButton fillButton" onClick={selectOnMap}>{props.settings.strings["re_choose_on_map"]}</button>
-        </div>
-      }
-      {location && useLiveLocation?
-        <p className="normalText textCenter">{`{ ${props.settings.strings["using_your_current_location"]} ${location.lat}, ${location.lng} }`}</p>
-        :
-        <div/>
-      }
-      {location && !useLiveLocation?
-        <p className="normalText textCenter">{`{ ${props.settings.strings["using_selected_location"]} ${location.lat}, ${location.lng} }`}</p>
-        :
-        <div/>
-      }
 
-      <ImageUpload/>
-      <form className="postForm" onSubmit={confirmPost}>
+        {useLiveLocation?
+          <div className="newPostTabSwitchContainer">
+            <button className="rippleButton positiveButton fillButton" onClick={useLiveLocationClick}>{props.settings.strings["use_your_current_location"]}</button>
+            <button className="rippleButton negativeButton fillButton" onClick={selectOnMap}>{props.settings.strings["choose_on_map"]}</button>
+          </div>
+          :
+          <div className="newPostTabSwitchContainer">
+            <button className="rippleButton negativeButton fillButton" onClick={useLiveLocationClick}>{props.settings.strings["use_your_current_location"]}</button>
+            <button className="rippleButton positiveButton fillButton" onClick={selectOnMap}>{props.settings.strings["re_choose_on_map"]}</button>
+          </div>
+        }
+        {location && useLiveLocation?
+          <p className="normalText textCenter">{`{ ${props.settings.strings["using_your_current_location"]} ${location.lat}, ${location.lng} }`}</p>
+          :
+          <div/>
+        }
+        {location && !useLiveLocation?
+          <p className="normalText textCenter">{`{ ${props.settings.strings["using_selected_location"]} ${location.lat}, ${location.lng} }`}</p>
+          :
+          <div/>
+        }
+      </div>
+      <ImageUploadMobile/>
+      <form className="postFormMobile" onSubmit={confirmPost}>
         <div className="inputContainer">
           <input name="title" id="titleField" className="input" placeholder={props.settings.strings["title"]} maxLength="32" autoComplete="off" onChange={TitleFieldChangeHandler} value={titleField}/>
           <div className="inputFocusLine"/>

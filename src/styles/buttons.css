@@ -103,6 +103,12 @@
   height: 5em;
 }
 
+.mobileIconSecondary{
+  fill: var(--secondary-text-color);
+  width: 5em;
+  height: 5em;
+}
+
 .mobileIconSmall{
   cursor: pointer;
   fill: var(--primary-text-color);

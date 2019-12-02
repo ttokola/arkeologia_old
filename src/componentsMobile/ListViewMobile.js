@@ -82,10 +82,10 @@ export const ListViewMobile = (props) => {
         </ul>
       </div>
       <button className="mobileNewButton" onClick={newPostClick}>
-        <AddIcon className="addIcon"/>
+        <AddIcon className="mobileIconSecondary"/>
       </button>
       <button className="mobileListViewButton" onClick={toMapView}>
-        <MapViewIcon className="addIcon"/>
+        <MapViewIcon className="mobileIconSecondary"/>
       </button>
     </div>
 

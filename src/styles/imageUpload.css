@@ -1,7 +1,11 @@
 .imageUploadContainer{
   display: flex;
   margin: 20px 0;
+}
 
+.imageUploadContainerMobile{
+  display: flex;
+  flex-direction: column;
 }
 
 .imagePreviewContainer{
@@ -9,8 +13,13 @@
   width: 320px;
   height: 180px;
   display: flex;
-  
-  
+}
+.imagePreviewContainerMobile{
+  width: 100%;
+  height: 280px;
+  max-height: 280px;
+  display: flex;
+  margin: auto;
 }
 
 .fileInput{
@@ -27,9 +36,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-
   justify-content: space-between;
 }
+
 input[type="file"]{
   display: none;
 }
@@ -39,6 +48,14 @@ input[type="file"]{
   width: auto;
   max-width: 320px;
   border-radius: 5px;
+}
+.previewImageMobile{
+  height: auto;
+  width: auto;
+  max-height: 280px;
+  max-width: 100%;
+  border-radius: 5px;
+  margin: auto;
 }
 
 .marginAuto{
