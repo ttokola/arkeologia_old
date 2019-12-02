@@ -39,7 +39,7 @@ export const PostView = (props) => {
     return(
       <div className="postViewContainer centerAlignWithPadding">
         <div className="postTitleContainer">
-          <h1 className="headerText">{post.title}</h1>
+          <h1 className="titleTextAuto">{post.title}</h1>
         </div>
         <div className="postImageContainer">
 

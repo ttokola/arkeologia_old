@@ -11,6 +11,7 @@ import {notify} from "../reducers/notificationReducer"
 import PostViewMobile from "./PostViewMobile"
 import LoginFormMobile from "./LoginFormMobile"
 import ListViewMobile from "./ListViewMobile"
+import NewPostMobile from "./NewPostMobile"
 
 const ContentAreaMobile = (props) => {
   // Ok this is just a container component for all the sub components except notification.
@@ -29,14 +30,20 @@ const ContentAreaMobile = (props) => {
           <MapContainerMobile history={history}/>
         </div>
       )}/>
+      <Route exact path="/select-location/" render={({history}) => (
+        <MapContainerMobile history={history}/>
+      )}/>
       <Route path="/list-view/" render={({history}) => (
         <ListViewMobile history={history}/>
       )}/>
       <Route exact path="/post-view/:id" render={({match,history}) => (
         <PostViewMobile match={match} history={history}/>
       )}/>
-      <Route exact path="/login/" render={({history}) => (
+      <Route path="/login/" render={({history}) => (
         <LoginFormMobile history={history}/>
+      )}/>
+      <Route path="/new-post/" render={({history}) => (
+        <NewPostMobile history={history}/>
       )}/>
     </div>
   )

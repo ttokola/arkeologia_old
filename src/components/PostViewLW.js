@@ -35,7 +35,7 @@ export const PostViewLW = (props) => {
     return(
       <div className="postViewContainerLW">
         <div className="postTitleContainer">
-          <h1 className="headerText">{props.post.title}</h1>
+          <h1 className="titleTextAuto">{props.post.title}</h1>
         </div>
         <div className="postImageContainer">
           <img className="postImage" src={props.post.image.data}></img>

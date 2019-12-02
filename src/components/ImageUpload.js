@@ -6,7 +6,7 @@ import {notify} from "../reducers/notificationReducer"
 import {setTempPost} from "../reducers/tempPostReducer"
 
 import "../styles/imageUpload.css"
-import { read } from "fs"
+
 //inspiration from
 //https://codepen.io/hartzis/pen/VvNGZP
 export const ImageUpload = (props) => {
