@@ -69,7 +69,7 @@ export const ListView = (props) => {
         </div>
 
         <div className="postPreviewContainer">
-          <PostViewLW post={post}/>
+          <PostViewLW post={post} history={props.history}/>
         </div>
 
 
