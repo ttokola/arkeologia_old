@@ -2,6 +2,7 @@
 import {createStore, combineReducers, applyMiddleware} from "../node_modules/redux"
 import thunk from "redux-thunk"
 import {composeWithDevTools} from "redux-devtools-extension"
+//import reducers here
 import notificationReducer from "./reducers/notificationReducer"
 import postReducer from "./reducers/postReducer"
 import loginReducer from "./reducers/loginReducer"
@@ -9,8 +10,9 @@ import userLocationReducer from "./reducers/userLocationReducer"
 import tempPostReducer from "./reducers/tempPostReducer"
 import projectReducer from "./reducers/projectReducer"
 import settingsReducer from "./reducers/settingsReducer"
+import mapLocationReducer from "./reducers/mapLocationReducer"
 
-//import reducers here
+
 
 
 const reducer = combineReducers({
@@ -22,7 +24,8 @@ const reducer = combineReducers({
   userLocation: userLocationReducer,
   tempPost: tempPostReducer,
   projects: projectReducer,
-  settings: settingsReducer
+  settings: settingsReducer,
+  mapLocation: mapLocationReducer
 
 })
 
