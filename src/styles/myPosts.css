@@ -12,6 +12,10 @@
   flex-direction: column;
 }
 
+.myPostsContainerMobile{
+  
+}
+
 .myPostsList{
   width: -webkit-fill-available;
   width: -moz-available;

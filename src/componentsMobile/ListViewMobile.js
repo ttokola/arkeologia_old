@@ -42,7 +42,14 @@ export const ListViewMobile = (props) => {
     //New post onClick event handler.
     event.preventDefault()
     console.log("Adding new post")
-    props.history.push("/new-post/")
+    if(props.user !== null){
+      console.log("Adding new post")
+      props.history.push("/new-post/")
+    }else{
+      //if not logged in, redirect to login page
+      props.history.push("/login/")
+      props.notify(props.settings.strings["login_required_to_post"], false, 5)
+    }
   }
 
   const [posts, setPosts] = useState(props.posts)
@@ -99,7 +106,7 @@ const mapStateToProps = (state) => {
     //maps state to props, after this you can for example call props.notification
     user: state.user,
     settings: state.settings,
-    posts: state.posts
+    posts: state.posts,
   }
 }
 

@@ -35,6 +35,18 @@
   overflow:hidden; overflow-y:scroll;
 }
 
+.postListListAdmin{
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0 0;
+
+  overflow:hidden; overflow-y:scroll;
+}
+
 .postListItem{
   list-style-type: none;
   cursor: pointer;
@@ -61,18 +73,21 @@
 
 .postListItemImageContainer{
   width: 30%;
-  max-width: 30%;
+  max-width: 200px;
+  
+}
+
+.postListReportFlags{
+  width: 30%;
 
 }
 
 .postListImagePreview{
-  width: -webkit-fill-available;
-  width: -moz-available;
-  height: -webkit-fill-available;
-  height: -moz-available;
+  max-height: 100px;
   max-width: 100%;
-  max-height: 100%;
   border-radius: 5px;
+  margin: auto;
+  display: flex;
 }
 .postListItemInfo{
   width: 65%;

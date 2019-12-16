@@ -1,7 +1,7 @@
 // By: Niklas Impiö
 import React, {useState, useEffect} from "react"
 import {connect} from "react-redux"
-import {Map, TileLayer, Marker, Popup} from "react-leaflet"
+import {Map, TileLayer, Marker} from "react-leaflet"
 import L from "leaflet"
 
 import "../stylesMobile/mapContainerMobile.css"
@@ -22,6 +22,7 @@ import {updateUserLocation} from "../reducers/userLocationReducer"
 
 import {usePosition} from "../hooks/LocationHook"
 import {setTempPost} from "../reducers/tempPostReducer"
+import {updateMapLocation} from "../reducers/mapLocationReducer"
 
 //setting up the default icon, since the library had some bugs for loading it.
 let defaultIcon = L.icon({
@@ -50,6 +51,10 @@ const MapContainerMobile = (props) => {
   const [zoom, setZoom] = useState(13)
   const [posts, setPosts] = useState([])
 
+
+  //Wheather the map constantly centers to user location. Enabled when user clics their own avatar. Disabled when map manually moved.
+  const [followUser, setFollowUser] = useState(true)
+
   //users custom location hook
   const {userLocation} = usePosition(5)
 
@@ -66,9 +71,15 @@ const MapContainerMobile = (props) => {
     if(props.posts !== posts){
       setPosts(props.posts)
     }
-    if(userLocation){
+    if(followUser){
       console.log("centering map to user location")
       setPosition(userLocation)
+    }
+
+    if(props.mapLocation !== null){
+      console.log("setting map to location")
+      setPosition(props.mapLocation)
+      props.updateMapLocation(null)
     }
   }, [props, posts])
 
@@ -78,6 +89,8 @@ const MapContainerMobile = (props) => {
     //event handler for post marker clicks. Routes to post view.
     console.log(`Clicked post: ${post}`, post)
     props.history.push(`/post-view/${post.id}/`)
+    setFollowUser(false)
+    setPosition(post.location)
   }
 
 
@@ -114,7 +127,34 @@ const MapContainerMobile = (props) => {
     //New post onClick event handler.
     event.preventDefault()
     console.log("Adding new post")
-    props.history.push("/new-post/")
+    if(props.user !== null){
+      console.log("Adding new post")
+      props.history.push("/new-post/")
+    }else{
+      //if not logged in, redirect to login page
+      props.history.push("/login/")
+      props.notify(props.settings.strings["login_required_to_post"], false, 5)
+    }
+  }
+
+  const userClick = () => {
+    //when user avatar clicked the map centers to user and followUser is activated.
+    if(!followUser){
+      console.log("Following User")
+      setFollowUser(true)
+      props.notify(props.settings.strings["user_follow"], false, 5)
+    }
+    setPosition(userLocation)
+  }
+
+  const dragEvent = (event) => {
+    //if followUser is active, disable it.
+    if(followUser){
+      console.log("Disabling Follow User")
+      setFollowUser(false)
+    }
+    setPosition(event.latlng)
+
   }
 
   const scrollListener = (event) => {
@@ -124,7 +164,7 @@ const MapContainerMobile = (props) => {
   }
   return(
     <div className="mapContainerMobile">
-      <Map className="fullscreenMap" zoomControl={false} center={position} zoom={zoom} onClick={leftClick} oncontextmenu={rightClick} onZoom={scrollListener}>
+      <Map className="fullscreenMap" zoomControl={false} center={position} zoom={zoom} onClick={leftClick} oncontextmenu={rightClick} onZoom={scrollListener} ondrag={dragEvent}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -135,8 +175,7 @@ const MapContainerMobile = (props) => {
           </Marker>
         )}
         {userLocation !== null?
-          <Marker position={userLocation} icon={userIcon}>
-            <Popup>YOU<br />ASDAS</Popup>
+          <Marker position={userLocation} icon={userIcon} onClick={userClick}>
           </Marker>
           :
           <div/>
@@ -147,7 +186,7 @@ const MapContainerMobile = (props) => {
           <div/>
         }
       </Map>
-      
+
       {props.history.location.pathname !== "/select-location/"?
         <div>
           <button className="mobileListViewButton" onClick={toListView}>
@@ -174,7 +213,9 @@ const mapStateToProps = (state) => {
     userLocation: state.userLocation,
     tempPost: state.tempPost,
     settings: state.settings,
-    posts: state.posts
+    posts: state.posts,
+    user: state.user,
+    mapLocation: state.mapLocation
 
   }
 }
@@ -185,7 +226,8 @@ const mapDispatchToProps = {
   notify,
   createPost,
   updateUserLocation,
-  setTempPost
+  setTempPost,
+  updateMapLocation
 
 }
 

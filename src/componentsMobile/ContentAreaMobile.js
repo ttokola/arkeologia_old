@@ -12,6 +12,7 @@ import PostViewMobile from "./PostViewMobile"
 import LoginFormMobile from "./LoginFormMobile"
 import ListViewMobile from "./ListViewMobile"
 import NewPostMobile from "./NewPostMobile"
+import MyPostsMobile from "./MyPostsMobile"
 
 const ContentAreaMobile = (props) => {
   // Ok this is just a container component for all the sub components except notification.
@@ -24,15 +25,13 @@ const ContentAreaMobile = (props) => {
   //Navigation can be done with props.history.push("/example-url/") [only the url after page name]
   return (
     <div className="contentContainer">
-      <Route exact path ="/" render={({history}) => (
+      <Route path ="/" render={({history}) => (
         <div>
           <NavMenuMobile history={history}/>
           <MapContainerMobile history={history}/>
         </div>
       )}/>
-      <Route exact path="/select-location/" render={({history}) => (
-        <MapContainerMobile history={history}/>
-      )}/>
+
       <Route path="/list-view/" render={({history}) => (
         <ListViewMobile history={history}/>
       )}/>
@@ -44,6 +43,9 @@ const ContentAreaMobile = (props) => {
       )}/>
       <Route path="/new-post/" render={({history}) => (
         <NewPostMobile history={history}/>
+      )}/>
+      <Route path="/my-posts/" render={({history}) => (
+        <MyPostsMobile history={history}/>
       )}/>
     </div>
   )

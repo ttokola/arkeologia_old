@@ -19,8 +19,8 @@ export const MyPosts = (props) => {
   Out of focus click closes the pop up.
   */
 
-  console.log(props)
   const posts = props.posts.filter(post => post.author === props.user.username)
+  console.log(posts)
 
   const getDateFromUnixStamp = (unix) => {
     //returns date in format dd.mm.yyyy
@@ -34,12 +34,12 @@ export const MyPosts = (props) => {
     console.log(`Clicked post: ${post}`, post)
     props.history.push(`/post-view/${post.id}/`)
   }
-  if(posts){
+  if(posts && posts.length > 0){
     //if user has posts render the lsit
 
     return(
       <div className="myPostsContainer centerAlignWithPadding">
-        <p className="headerText">{props.settings.strings["my_posts"]}</p>
+        <h1 className="headerText">{props.settings.strings["my_posts"]}</h1>
         <ul className="myPostsList">
           {posts.map((post,index) =>
             <li key={index} className="myPostsListItem" onClick={() => onPostClick(post)}>
@@ -59,7 +59,14 @@ export const MyPosts = (props) => {
   }
   //if user doesn't have any posts, tell them
   return(
-    <div/>
+    <div className="myPostsContainer centerAlignWithPadding">
+      <h1 className="headerText">{props.settings.strings["my_posts"]}</h1>
+      <ul className="myPostsList">
+        <li>
+          <h2 className="headerText">{props.settings.strings["empty_list"]}</h2>
+        </li>
+      </ul>
+    </div>
   )
 
 }
