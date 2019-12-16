@@ -19,6 +19,8 @@ import PostView from "./PostView"
 import ListView from "./ListView"
 import SignUp from "./SignUp"
 import MyPosts from "./MyPosts"
+import ReportPost from "./ReportPost"
+import AdminView from "./AdminView"
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -76,10 +78,18 @@ const ContentArea = (props) => {
           <PostView match={match} history={history}/>
         </PopUpContainer>
       )}/>
-      <Route path="/my-posts" render={({history}) => (
+      <Route exact path="/post-view/:id/report" render={({match,history}) => (
+        <PopUpContainer history={history}>
+          <ReportPost match={match} history={history}/>
+        </PopUpContainer>
+      )}/>
+      <Route path="/my-posts/" render={({history}) => (
         <PopUpContainer history={history}>
           <MyPosts history={history}/>
         </PopUpContainer>
+      )}/>
+      <Route path="/admin-view/" render={({history}) => (
+        <AdminView history={history}/>
       )}/>
 
 
