@@ -8,6 +8,8 @@ const postReducer = (state = [], action) => {
     return action.data
   case "CREATE_POST":
     return state.concat(action.data)
+  case "DELETE_POST":
+    return state.filter(item => item.id !== action.data)
   default:
     return state
   }
@@ -42,6 +44,25 @@ export const createPost = (object) => {
       console.log(exeption)
     }
 
+  }
+}
+
+export const deletePost = (id) => {
+  console.log("deleting post", id)
+  return async dispatch => {
+    try{
+      const response = await postService.deletePost(id)
+      console.log(response)
+      if(response.status === 200){
+        dispatch({
+          type: "DELETE_POST",
+          data: id
+        })
+      }
+
+    }catch(exeption){
+      console.log(exeption)
+    }
   }
 }
 

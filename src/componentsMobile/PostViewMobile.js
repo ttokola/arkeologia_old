@@ -1,7 +1,9 @@
 // By: Niklas Impiö
-import React from "react"
+import React, {useState} from "react"
 import {connect} from "react-redux"
 import {notify} from "../reducers/notificationReducer"
+import {deletePost} from "../reducers/postReducer"
+import {updateMapLocation} from "../reducers/mapLocationReducer"
 
 import "../styles/postView.css"
 import "../styles/buttons.css"
@@ -20,17 +22,34 @@ export const PostViewMobile = (props) => {
   /*
     Modified Postview to be used as part of listview, gets post as props. 
   */
+  const [deleteState, setDeleteState] = useState(false)
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
   console.log(post)
 
+  const deletePost = (event) => {
+    event.preventDefault()
+    console.log("postView deleting post", post.id)
+    props.deletePost(post.id)
+    props.history.goBack()
+    props.notify(`${props.settings.strings["post"]}: "${post.title}" ${props.settings.strings["delete_success"]}`, false, 5)
+
+  }
+
   const showOnMap = (event) => {
-    //TODO go to map and set position to props.post.location
+    event.preventDefault()
+    console.log(`Centering Map to ${post.title} coordinates.`)
+    props.updateMapLocation(post.location)
+    props.history.push("/")
   }
 
   const getDateFromUnixStamp = (unix) => {
     //returns date in format dd.mm.yyyy
     const date = new Date(unix)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
+  }
+  const reportClick = (event) => {
+    event.preventDefault()
+    props.history.push(`/post-view/${props.post.id}/report/`)
   }
 
   if(post){
@@ -60,13 +79,18 @@ export const PostViewMobile = (props) => {
             <p className="normalTextNoMargin">{getDateFromUnixStamp(post.date)}</p>
           </div>
           <div className="postButtonsContainer">
-            {props.user && (props.user.admin || props.user.username === props.post.author)?
-              <button className="rippleButton smallButton">{props.settings.strings["delete_post"]}</button>
+            {props.user && (props.user.admin || props.user.username === post.author)?
+              <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
               :
               <div/>
 
             }
-            <button className="rippleButton smallButton">{props.settings.strings["report"]}</button>
+            
+            {props.user !== null?
+              <button className="rippleButton smallButton negativeButton" onClick={reportClick}>{props.settings.strings["report"]}</button>
+              :
+              <div/>
+            }
             <TwitterIcon className="mobileIconSmall"/>
             <FacebookIcon className="mobileIconSmall"/>
             <InstagramIcon className="mobileIconSmall"/>
@@ -76,7 +100,11 @@ export const PostViewMobile = (props) => {
           <p className="normalText">{post.story}</p>
         </div>
         <div className="postCloseContainer">
-          <button className="rippleButton fillButton bigButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
+          {deleteState?
+            <button className="rippleButton fillButton bigButton pulsingButton" onClick={deletePost}>{props.settings.strings["confirm_delete"]}</button>
+            :
+            <button className="rippleButton fillButton bigButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
+          }
         </div>
       </div>
     )
@@ -101,6 +129,8 @@ const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   //notify (for example)
   notify,
+  deletePost,
+  updateMapLocation
 
 }
 

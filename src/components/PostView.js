@@ -1,7 +1,8 @@
 // By: Niklas Impiö
-import React from "react"
+import React, {useState} from "react"
 import {connect} from "react-redux"
 import {notify} from "../reducers/notificationReducer"
+import {deletePost} from "../reducers/postReducer"
 
 import "../styles/postView.css"
 import "../styles/buttons.css"
@@ -11,12 +12,12 @@ import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"
 import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
 import {ReactComponent as InstagramIcon} from "../resources/instagram_icon.svg"
 
-
+import DropDownList from "./DropDownList"
 
 
 
 export const PostView = (props) => {
-
+  const [deleteState, setDeleteState] = useState(false)
   //gets the post to show based on the id that is set on the url field.
   const post = props.posts.find(item => "" + item.id === props.match.params.id)
 
@@ -26,13 +27,27 @@ export const PostView = (props) => {
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
   }
 
+  const deletePost = (event) => {
+    event.preventDefault()
+    console.log("postView deleting post", post.id)
+    props.deletePost(post.id)
+    props.history.goBack()
+    props.notify(`${props.settings.strings["post"]}: "${post.title}" ${props.settings.strings["delete_success"]}`, false, 5)
+
+  }
+
   const closeClick = (event) => {
     //eventhandler for close button
     event.preventDefault()
     console.log("closeClick")
     props.history.goBack()
   }
-  console.log(props)
+
+  const reportClick = (event) => {
+    event.preventDefault()
+    props.history.push(`/post-view/${post.id}/report/`)
+  }
+  //console.log(props)
   if(post){
     //if post is defined return the actual post view else empty div.
 
@@ -57,12 +72,17 @@ export const PostView = (props) => {
           </div>
           <div className="postButtonsContainer">
             {props.user && (props.user.admin || props.user.username === post.author)?
-              <button className="rippleButton smallButton">Delete Post</button>
+              <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
               :
               <div/>
 
             }
-            <button className="rippleButton smallButton" >Report</button>
+            {props.user !== null?
+              <button className="rippleButton smallButton negativeButton" onClick={reportClick}>{props.settings.strings["report"]}</button>
+              :
+              <div/>
+            }
+
             <TwitterIcon className="mobileIconSmall"/>
             <FacebookIcon className="mobileIconSmall"/>
             <InstagramIcon className="mobileIconSmall"/>
@@ -72,7 +92,11 @@ export const PostView = (props) => {
           <p className="normalText">{post.story}</p>
         </div>
         <div className="postCloseContainer">
-          <button className="rippleButton fillButton bigButton" onClick={closeClick}>{props.settings.strings["close"]}</button>
+          {deleteState?
+            <button className="rippleButton fillButton bigButton pulsingButton" onClick={deletePost}>{props.settings.strings["confirm_delete"]}</button>
+            :
+            <button className="rippleButton fillButton bigButton" onClick={closeClick}>{props.settings.strings["close"]}</button>
+          }
         </div>
       </div>
     )
@@ -97,6 +121,7 @@ const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   //notify (for example)
   notify,
+  deletePost
 
 }
 

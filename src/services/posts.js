@@ -28,7 +28,7 @@ const getPostById = async (project, id) => {
 
 }
 
-const createNewPost = async (postObject, projectName) =>{
+const createNewPost = async (postObject, projectName) => {
   const config = {
     headers: {"Authorization": token}
   }
@@ -47,4 +47,14 @@ const createNew = async (object) => {
   return response
 }
 
-export default {getAllPosts, createNew, setToken}
+const deletePost = async (id) => {
+
+  const config = {
+    headers: {"Authorization": token}
+  }
+  const response = await axios.delete(`${baseUrl}/${id}`, config)
+  return response
+
+}
+
+export default {getAllPosts, createNew, deletePost, setToken}

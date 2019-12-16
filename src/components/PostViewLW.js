@@ -1,7 +1,9 @@
 // By: Niklas Impiö
-import React from "react"
+import React, {useState} from "react"
 import {connect} from "react-redux"
 import {notify} from "../reducers/notificationReducer"
+import {deletePost} from "../reducers/postReducer"
+import {updateMapLocation} from "../reducers/mapLocationReducer"
 
 import "../styles/postView.css"
 import "../styles/buttons.css"
@@ -15,12 +17,28 @@ import {ReactComponent as InstagramIcon} from "../resources/instagram_icon.svg"
 
 export const PostViewLW = (props) => {
   /*
-    Modified Postview to be used as part of listview, gets post as props. 
+    Modified Postview to be used as part of listview, gets post as props.
   */
-
+  const [deleteState, setDeleteState] = useState(false)
 
   const showOnMap = (event) => {
-    //TODO go to map and set position to props.post.location
+    event.preventDefault()
+    console.log(`Centering Map to ${props.post.title} coordinates.`)
+    props.updateMapLocation(props.post.location)
+    props.history.push("/")
+  }
+  const deletePost = (event) => {
+    event.preventDefault()
+    console.log("postView deleting post", props.post.id)
+    props.deletePost(props.post.id)
+    props.history.push("/")
+    props.notify(`${props.settings.strings["post"]}: "${props.post.title}" ${props.settings.strings["delete_success"]}`, false, 5)
+
+  }
+
+  const reportClick = (event) => {
+    event.preventDefault()
+    props.history.push(`/post-view/${props.post.id}/report/`)
   }
 
   const getDateFromUnixStamp = (unix) => {
@@ -51,12 +69,16 @@ export const PostViewLW = (props) => {
           </div>
           <div className="postButtonsContainer">
             {props.user && (props.user.admin || props.user.username === props.post.author)?
-              <button className="rippleButton smallButton">{props.settings.strings["delete_post"]}</button>
+              <button className="rippleButton smallButton negativeButton" onClick={() => setDeleteState(true)}>{props.settings.strings["delete_post"]}</button>
               :
               <div/>
 
             }
-            <button className="rippleButton smallButton">{props.settings.strings["report"]}</button>
+            {props.user !== null?
+              <button className="rippleButton smallButton negativeButton" onClick={reportClick}>{props.settings.strings["report"]}</button>
+              :
+              <div/>
+            }
             <TwitterIcon className="mobileIconSmall"/>
             <FacebookIcon className="mobileIconSmall"/>
             <InstagramIcon className="mobileIconSmall"/>
@@ -66,7 +88,11 @@ export const PostViewLW = (props) => {
           <p className="normalText">{props.post.story}</p>
         </div>
         <div className="postCloseContainer">
-          <button className="rippleButton fillButton bigButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
+          {deleteState?
+            <button className="rippleButton fillButton bigButton pulsingButton" onClick={deletePost}>{props.settings.strings["confirm_delete"]}</button>
+            :
+            <button className="rippleButton fillButton bigButton" onClick={showOnMap}>{props.settings.strings["show_on_map"]}</button>
+          }
         </div>
       </div>
     )
@@ -91,6 +117,8 @@ const mapDispatchToProps = {
   //connect reducer functions/dispatchs to props
   //notify (for example)
   notify,
+  deletePost,
+  updateMapLocation
 
 }
 
