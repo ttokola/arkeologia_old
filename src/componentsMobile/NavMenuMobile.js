@@ -25,8 +25,13 @@ export const NavMenuMobile = (props) => {
 
   const aboutClick = (event) => {
     event.preventDefault()
-    props.history.push("/about")
+    props.history.push("/about/")
 
+  }
+  
+  const toMyPostsClick = (event) => {
+    event.preventDefault()
+    props.history.push("/my-posts/")
   }
 
   const logoutClick = (event) => {
@@ -82,7 +87,6 @@ export const NavMenuMobile = (props) => {
             <div className="mobileMenuNavigationContainer">
               <button className="mobileMenuButton" onClick={toLoginClick}>{props.settings.strings["log_in"]}</button>
               <button className="mobileMenuButton" onClick={toSignUp}>{props.settings.strings["sign_up"]}</button>
-              <button className="mobileMenuButton" onClick={(event) => {event.preventDefault(); props.notify("asdasd", false, 30)}}>Notify</button>
 
             </div>
           }
@@ -90,7 +94,7 @@ export const NavMenuMobile = (props) => {
           <div className="divider"/>
           {props.user?
             <div className="mobileMenuUserContainer">
-              <DropDownList  items={[{string:props.settings.strings["account_activity"], onClickHandler: null}, {string:props.settings.strings["configure_account"], onClickHandler: null},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
+              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: toMyPostsClick}, {string:props.settings.strings["configure_account"], onClickHandler: null},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
                 <LanguageDropDown/>
                 <ThemeToggleSwitch/>
               </DropDownList>
