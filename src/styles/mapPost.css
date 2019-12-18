@@ -1,0 +1,19 @@
+.postFormButtonContainer{
+  display: flex;
+  margin: 1em 0;
+}
+
+.mapPostContainer{
+  background: var(--primary-color);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.primaryBackground{
+  background: var(--primary-color);
+}
+
+.imageInputContainer{
+  display: flex;
+  margin: 1em 0;
+}

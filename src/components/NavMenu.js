@@ -1,68 +1,54 @@
+// By: Niklas Impiö
 import React from "react"
 import {connect} from "react-redux"
 import {logout} from "../reducers/loginReducer"
 import {notify} from "../reducers/notificationReducer"
+
+
 import "../styles/navMenu.css"
 
+import ProjectDropDown from "./ProjectDropDown"
+import HorizontalMenuList from "./HorizontalMenuList"
+
+
 export const NavMenu = (props) => {
+  //Nav menu container component that has the menu components embedded.
 
-  const aboutClick = (event) => {
+  const toProjectMenu = (event) => {
     event.preventDefault()
-    props.history.push("/about")
+    props.history.push("/project-info/")
   }
-  const projectInfoClick = (event) => {
+  const toRoot = (event) => {
+    //pushes url route to root or "/", might change later when different projects implemented.
     event.preventDefault()
-    props.history.push("/project-info")
+    props.history.push("/")
   }
-
-  const logoutClick = (event) => {
-    event.preventDefault()
-    console.log("Logging out")
-    props.logout()
-  }
-  const loginClick = (event) => {
-    event.preventDefault()
-    props.history.push("/login")
-
-  }
-  console.log(props)
   return (
-    <div className="altMenuContainer">
-      <div className="altMenuGrid">
-        <div className="altMenuLogo">
-          <p className="logoText">Chimneys GO</p>
+    <div className="menuContainer">
+      <div className="menuInnerContainer">
+        <div className="menuLogo" >
+          <p className="logoText" onClick={toRoot}>Chimneys GO</p>
         </div>
-        <ul className="altMenuButtonList">
-          {props.user?
-            <li className="menuListItem" onClick={logoutClick}>
-              <p className="menuItemText">{props.user.username} Logout</p>
-            </li>
-            :
-            <li className="menuListItem" onClick={loginClick}>
-              <p className="menuItemText">Log In</p>
-            </li>
-          }
-          <li name="" className="menuListItem" onClick={aboutClick}>
+        <div className="projectSelectContainer">
 
-            <p name="" className="menuItemText">About</p>
-          </li>
-          <li name="" className="menuListItem" onClick={projectInfoClick}>
-
-            <p name="" className="menuItemText">Project Info</p>
-          </li>
-
-        </ul>
-
+          <ProjectDropDown/>
+          <div className="projectInfoButtonContainer">
+            <button className="projectInfoButton" onClick={toProjectMenu}>{props.settings.strings["project_info"]}</button>
+          </div>
+        </div>
+        <HorizontalMenuList history={props.history}/>
       </div>
     </div>
+
+
   )
 }
 
 const mapStateToProps = (state) => {
   return {
     //maps state to props, after this you can for example call props.notification
-    user: state.user
-
+    user: state.user,
+    settings: state.settings
   }
 }
 

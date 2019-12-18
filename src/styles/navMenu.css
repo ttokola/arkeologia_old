@@ -1,80 +1,76 @@
-:root{
-  --primary-color: #161616;
-  --secondary-color: #1b1c1d;
-
-  --primary-text-color: #ffffff;
-  --secondary-text-color: #808080;
-
-  
-  --accent-color: rgb(66, 66, 66);
-  --accent-color-dark: #1b1c1d;
-  --accent-color-light: #808080;
-  --effect-color: #cecece;
-
-}
-
-.altMenuContainer{
-  z-index: 3;
+.menuContainer{
+  z-index: 5;
   width: 100%;
-  height: fit-content;
+  height: 4em;
   top: 0;
   background: var(--secondary-color);
-  -webkit-box-shadow: 10px var(--accent-color-light);
-  box-shadow: 0px 0px 10px var(--accent-color);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  box-shadow: 0 0 5px var(--accent-color);
+
 }
 
-.altMenuGrid{
+.menuInnerContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 0 1 auto;
   max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-areas:
-    "left center right";
-  grid-gap: 30px;
+  margin: 0 auto;
   width: -webkit-fill-available;
   width: -moz-available;
-  border-radius: 5px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 
-.altMenuLogo{
-  grid-area: left;
-  padding:10px;
-}
+.menuLogo{
 
-.altMenuButtonList{
-  color: var(--primary-text-color);
+  display: flex;
+  grid-area: logo;
+  margin: 0;
+  width: 100%;
+  max-width: 18%;
+  height: 4em;
+  width: -moz-fit-content;
+}
+/*
+.menuButtonList{
+  color: var(--secondary-text-color);
   list-style-type: none;
   padding: 0;
   margin: 0;
+  height: 4em;
   grid-area: right;
 }
 
 .menuItemText{
+  
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   font-size: 1.2em;
   display: block;
   font-weight: 500;
 }
-
+*/
 .logoText{
+  cursor: pointer;
   color: var(--primary-text-color);
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  margin: 0px;
+  margin: auto 0;
   font-weight: 700;
   font-size: 1.2em;
   padding: 10px;
 }
-
+/*
 .menuListItem{
   cursor: pointer;
   float: right;
-  margin: 0px 10px;
-  padding: 0px 5px;
-  height: 100%;
+  margin: 0px;
+  padding: 0px 15px;
+  height: 4em;
   display: block;
   text-align: center;
   align-self: center;
   transition: 0s;
-  color: var(--effect-color);
 }
 
 .menuListItem:hover{
@@ -82,4 +78,74 @@
   transition: 0.5s;
   background: var(--accent-color);
   height: 100%;
+}
+
+.accountDropDownContainer{
+  float: right;
+  height: fit-content;
+  height: -moz-fit-content;
+  width: 100%;
+  top: 4em;
+}
+
+.maxWidthContainer{
+  top: 0;
+  max-width: 1200px;
+  padding: 0px;
+  margin: 0 auto;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border-radius: 5px;
+}
+
+.accountItemContainer{
+  display: flex;
+  width: fit-content;
+  width: -moz-fit-content;
+}
+*/
+
+.projectInfoButtonContainer{
+  height: 4em;
+  display: flex;
+  flex-direction: column;
+  min-width: fit-content;
+}
+.projectInfoButton{
+  background: var(--secondary-color);
+  color: var(--secondary-text-color);
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: 0;
+  border: none;
+  vertical-align: baseline;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1.2em;
+  margin: 0 .25em 0 .25em;
+  padding: .78571429em 0.5em .78571429em;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 600;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: .28571429rem;
+  background-position: center;
+  transition: background 0s;
+  margin: auto;
+}
+
+.projectInfoButton:hover{
+  color: var(--primary-text-color);
+}
+
+.projectSelectContainer{
+  display: flex;
+
+  justify-content: space-between;
+  width: 100%;
+  max-width: 45%;
+  margin: 0 1%
 }

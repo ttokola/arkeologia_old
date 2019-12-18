@@ -1,0 +1,103 @@
+.inputContainer{
+  background: var(--secondary-color);
+  margin: 20px 0px;
+  padding: 5px 0;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border: none;
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1em;
+  resize: none;
+}
+.inputContainerPrimary{
+  background: var(--primary-color);
+  margin: 20px 0px;
+  padding: 5px;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border: none;
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1em;
+  resize: none;
+}
+
+.inputFocusLine{
+  position: relative;
+  bottom: 2px;
+  margin: auto;
+  width: 0%;
+  border-bottom: 2px solid var(--primary-text-color);
+  transition: linear width 0s;
+}
+.inputFocusLineComment{
+  bottom: 2px;
+}
+
+.input{
+  vertical-align: top;
+  background: var(--secondary-color);
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border: none;
+  margin: 0px;
+  overflow: hidden;
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1em;
+  resize: none;
+  padding: 0px;
+  border-bottom: 2px solid var(--accent-color-light);
+}
+
+.input:focus{
+  outline: none;
+}
+
+.input:focus + .inputFocusLine{
+  border-bottom: 2px solid var(--primary-text-color);
+  width:100%;
+  transition-duration: 0.3s;
+}
+
+.inputPrimary{
+  vertical-align: top;
+  background: var(--primary-color);
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border: none;
+  margin: 0px;
+  overflow: hidden;
+  color: var(--primary-text-color);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1em;
+  resize: none;
+  padding: 0px;
+  border-bottom: 2px solid var(--accent-color-light);
+}
+.inputPrimary:-webkit-autofill{
+  background: var(--primary-color) !important;
+}
+.inputPrimary:focus{
+  outline: none;
+}
+
+.inputPrimary:focus + .inputFocusLine{
+  border-bottom: 2px solid var(--primary-text-color);
+  width:100%;
+  transition-duration: 0.3s;
+}
+
+.checkbox{
+  background: var(--secondary-color);
+}
+

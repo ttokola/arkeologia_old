@@ -1,4 +1,4 @@
-//import store from "../store"
+// By: Niklas Impiö
 
 const initialState = {message: null, error: false, seconds: 0, cancel: null}
 
@@ -23,8 +23,8 @@ export const notify = (message, error, seconds) => {
 
   return (dispatch) => {
     //define cancel function and include it in redux state notification, then components can call window.clearTimeout() as long as they can access props.notification
-
     const cancel = setTimeout(() => {
+      //cancel is a timeout function that does the dispatch after specified time has ellapsed.
       dispatch({
         type: "CANCEL_NOTIFICATION",
       })
@@ -46,11 +46,11 @@ export const notify = (message, error, seconds) => {
 
 
 export const cancelNotification = () => {
+  //remove current notification from state.
   console.log("cancelling notification")
   return (dispatch) => {
     dispatch({
       type: "CANCEL_NOTIFICATION"
-
     })
   }
 }
