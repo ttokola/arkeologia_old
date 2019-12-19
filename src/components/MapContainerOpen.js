@@ -1,7 +1,7 @@
 // By: Niklas Impiö
 import React, {useState, useEffect} from "react"
 import {connect} from "react-redux"
-import {Map, TileLayer, Marker, Popup} from "react-leaflet"
+import {Map, TileLayer, Marker} from "react-leaflet"
 import L from "leaflet"
 import "../styles/mapContainer.css"
 import "leaflet/dist/leaflet.css"
@@ -136,7 +136,7 @@ const MapContainerOpen = (props) => {
 
   const toListView = (event) => {
     event.preventDefault()
-    console.log("Adding new post")
+    console.log("to list view")
     props.history.push("/list-view/")
   }
   const newPostClick = (event) => {

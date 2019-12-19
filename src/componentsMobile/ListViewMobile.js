@@ -7,7 +7,6 @@ import {notify} from "../reducers/notificationReducer"
 
 
 import "../styles/listView.css"
-import "../styles/postList.css"
 import "../styles/postView.css"
 
 
