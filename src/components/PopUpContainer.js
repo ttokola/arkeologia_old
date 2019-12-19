@@ -1,7 +1,7 @@
 // By: Niklas Impiö
 import React from "react"
 
-import "../styles/containers.css"
+import "../styles.css"
 
 
 

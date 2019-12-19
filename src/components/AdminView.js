@@ -4,9 +4,7 @@ import {connect} from "react-redux"
 import {notify} from "../reducers/notificationReducer"
 
 
-import "../styles/adminView.css"
-import "../styles/buttons.css"
-import "../styles/texts.css"
+import "../styles.css"
 
 
 

@@ -5,8 +5,7 @@ import {logout} from "../reducers/loginReducer"
 import {notify} from "../reducers/notificationReducer"
 
 
-import "../styles/navMenu.css"
-import "../stylesMobile/navMenuMobile.css"
+import "../styles.css"
 import {ReactComponent as MenuIcon} from "../resources/menu.svg"
 
 import ProjectDropDown from "../components/ProjectDropDown"

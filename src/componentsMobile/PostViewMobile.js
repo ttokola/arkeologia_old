@@ -5,9 +5,7 @@ import {notify} from "../reducers/notificationReducer"
 import {deletePost} from "../reducers/postReducer"
 import {updateMapLocation} from "../reducers/mapLocationReducer"
 
-import "../styles/postView.css"
-import "../styles/buttons.css"
-import "../styles/texts.css"
+import "../styles.css"
 
 import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"
 import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"

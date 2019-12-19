@@ -2,8 +2,7 @@
 import React, {useState, useEffect} from "react"
 import {connect} from "react-redux"
 
-import "../styles/newPost.css"
-import "../styles/buttons.css"
+import "../styles.css"
 import {createPost} from "../reducers/postReducer"
 import {notify} from "../reducers/notificationReducer"
 import {setTempPost} from "../reducers/tempPostReducer"

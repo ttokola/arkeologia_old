@@ -4,7 +4,7 @@ import {connect} from "react-redux"
 import {logout} from "../reducers/loginReducer"
 import {notify} from "../reducers/notificationReducer"
 
-import "../styles/horizontalMenuList.css"
+import "../styles.css"
 import useComponentVisible from "../hooks/OutsideClick"
 
 import DropDownList from "./DropDownList"

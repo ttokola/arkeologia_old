@@ -5,9 +5,7 @@ import {connect} from "react-redux"
 import {logout} from "../reducers/loginReducer"
 import {notify} from "../reducers/notificationReducer"
 
-
-import "../styles/listView.css"
-import "../styles/postView.css"
+import "../styles.css"
 
 
 

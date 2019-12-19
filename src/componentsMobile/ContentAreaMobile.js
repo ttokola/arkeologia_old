@@ -14,6 +14,8 @@ import ListViewMobile from "./ListViewMobile"
 import NewPostMobile from "./NewPostMobile"
 import MyPostsMobile from "./MyPostsMobile"
 
+import "../styles.css"
+
 const ContentAreaMobile = (props) => {
   // Ok this is just a container component for all the sub components except notification.
   //Mobile version

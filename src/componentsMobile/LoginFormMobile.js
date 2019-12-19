@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import {connect} from "react-redux"
 import {login} from "../reducers/loginReducer"
 import {notify} from "../reducers/notificationReducer"
-import "../styles/loginForm.css"
+import "../styles.css"
 
 
 import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"

@@ -1,6 +1,6 @@
 // By: Niklas Impiö
 import React from "react"
-import "../styles/dropDownList.css"
+import "../styles.css"
 
 
 

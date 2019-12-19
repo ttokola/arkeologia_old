@@ -2,7 +2,7 @@
 import React from "react"
 import {connect} from "react-redux"
 import {cancelNotification} from "../reducers/notificationReducer"
-import "../styles/notification.css"
+import "../styles.css"
 
 
 const Notification = (props) => {

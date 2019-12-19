@@ -5,7 +5,7 @@ import {logout} from "../reducers/loginReducer"
 import {notify} from "../reducers/notificationReducer"
 
 
-import "../styles/navMenu.css"
+import "../styles.css"
 
 import ProjectDropDown from "./ProjectDropDown"
 import HorizontalMenuList from "./HorizontalMenuList"

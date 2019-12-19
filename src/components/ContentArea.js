@@ -9,7 +9,7 @@ import About from "./About"
 import ProjectInfo from "./ProjectInfo"
 import MapContainerOpen from "./MapContainerOpen"
 
-import "../styles/containers.css"
+import "../styles.css"
 import PopUpContainer from "./PopUpContainer"
 
 

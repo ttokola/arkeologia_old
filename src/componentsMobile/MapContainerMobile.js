@@ -4,7 +4,7 @@ import {connect} from "react-redux"
 import {Map, TileLayer, Marker} from "react-leaflet"
 import L from "leaflet"
 
-import "../stylesMobile/mapContainerMobile.css"
+import "../styles.css"
 import "leaflet/dist/leaflet.css"
 
 import icon from "../resources/marker-icon.png"

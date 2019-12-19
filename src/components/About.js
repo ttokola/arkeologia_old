@@ -1,4 +1,5 @@
 import React from "react"
+import "../styles.css"
 
 
 //probably make individual css files for all you use here.

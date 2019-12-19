@@ -3,9 +3,7 @@ import React from "react"
 import {connect} from "react-redux"
 import {notify} from "../reducers/notificationReducer"
 
-import "../styles/myPosts.css"
-import "../styles/buttons.css"
-import "../styles/texts.css"
+import "../styles.css"
 
 
 import {ReactComponent as ReturnIcon} from "../resources/arrow_back.svg"

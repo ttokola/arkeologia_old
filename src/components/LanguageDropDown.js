@@ -5,7 +5,7 @@ import useComponentVisible from "../hooks/OutsideClick"
 
 import DropDownList from "./DropDownList"
 import {ReactComponent as DropDownIcon} from "../resources/arrow_drop_down-24px.svg"
-import "../styles/languageDropDown.css"
+import "../styles.css"
 
 import {setActiveLanguage} from "../reducers/settingsReducer"
 

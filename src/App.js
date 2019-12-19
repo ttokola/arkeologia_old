@@ -5,6 +5,7 @@ import {Route, BrowserRouter as Router} from "react-router-dom"
 
 
 
+
 //import dispatch methods
 import {notify} from "./reducers/notificationReducer"
 import {login, logout, initLoggedUser} from "./reducers/loginReducer"
@@ -15,10 +16,11 @@ import {initSettings} from "./reducers/settingsReducer"
 //import components
 import Notification from "./components/Notification"
 import NavMenu from "./components/NavMenu"
-import "./styles/containers.css"
 import ContentArea from "./components/ContentArea"
 import ContentAreaMobile from "./componentsMobile/ContentAreaMobile"
 import NotificationMobile from "./componentsMobile/NotificationMobile"
+
+import "./styles.css"
 
 
 const App = (props) => {

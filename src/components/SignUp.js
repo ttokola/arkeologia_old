@@ -2,8 +2,7 @@ import React from "react"
 import {connect} from "react-redux"
 
 import {notify} from "../reducers/notificationReducer"
-import "../styles/signUp.css"
-import "../styles/inputs.css"
+import "../styles.css"
 
 export const SignUp = (props) => {
 
@@ -16,7 +15,7 @@ export const SignUp = (props) => {
   const signUpClick = (event) => {
     //check Values locally, if ok send to backend, otherwise notify.
     //TODO
-    
+
 
   }
 

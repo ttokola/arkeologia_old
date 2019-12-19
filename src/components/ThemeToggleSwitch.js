@@ -4,7 +4,7 @@ import {connect} from "react-redux"
 
 import {setActiveTheme} from "../reducers/settingsReducer"
 
-import "../styles/themeToggleSwitch.css"
+import "../styles.css"
 
 export const ThemeToggleSwitch = (props) => {
   const [darkMode, setDarkMode] = useState(props.settings.activeTheme === "dark")

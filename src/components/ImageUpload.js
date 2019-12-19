@@ -5,7 +5,7 @@ import {connect} from "react-redux"
 import {notify} from "../reducers/notificationReducer"
 import {setTempPost} from "../reducers/tempPostReducer"
 
-import "../styles/imageUpload.css"
+import "../styles.css"
 
 //inspiration from
 //https://codepen.io/hartzis/pen/VvNGZP

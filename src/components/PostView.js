@@ -4,9 +4,7 @@ import {connect} from "react-redux"
 import {notify} from "../reducers/notificationReducer"
 import {deletePost} from "../reducers/postReducer"
 
-import "../styles/postView.css"
-import "../styles/buttons.css"
-import "../styles/texts.css"
+import "../styles.css"
 
 import {ReactComponent as TwitterIcon} from "../resources/twitter_icon.svg"
 import {ReactComponent as FacebookIcon} from "../resources/facebook_icon.svg"
