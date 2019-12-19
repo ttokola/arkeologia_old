@@ -65,9 +65,17 @@
       "user_follow": "The Map Will Automatically Follow Your Avatar Until You Drag The Map.",
       
       "tos_checkbox_text": "I Have Read and Agree to the Terms of Service.",
+      "read_tos": "Read Terms of Service",
       "tos_title": "Terms of Service",
-      "tos_text": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum \n Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum "
-    
+      "tos_text": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum \n Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum ",
+      "unfilled_fields": "Some of the Fields Are Still Empty. Fill Those and Try Again.",
+      "tos_unchecked": "You Need to Read and Accept the Terms of Service Before Creating an Account.",
+      "password_reqs_not_met": "Password Needs to Atleast 8 Characters Long.",
+      "passwords_dont_match": "Password Fields Values Are not the Same."
+
+      
+
+
     },
     "fi":{
       "project_info": "Projekti Info",
