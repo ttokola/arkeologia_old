@@ -44,13 +44,12 @@ export const LoginFormMobile = (props) => {
 
     return(
       <div className="loginContainerMobile">
-        
 
         <form className="loginForm loginFormMobile" name="loginForm" onSubmit={recoverPassword}>
           <div className="mainContent">
             <div className="titleContainerMobile">
               <button className="mobileButtonContainer">
-                <ReturnIcon className="mobileIcon" onClick={(event) => {event.preventDefault(); props.history.goBack()}}/>
+                <ReturnIcon className="mobileIcon" onClick={(event) => {event.preventDefault(); setForgotState(false)}}/>
               </button>
               <div className="titleHeaderMobile">
                 <h1 className="titleTextMobile">{props.settings.strings["password_recovery"]}</h1>
@@ -62,14 +61,11 @@ export const LoginFormMobile = (props) => {
               <div className="inputFocusLine"/>
             </div>
           </div>
-          
-
-
-          <div className="buttonContainerMobile">
-            <button className="negativeButton rippleButton fillButton" onClick={forgotClick}>{props.settings.strings["cancel"]}</button>
-            <button type="submit" className="positiveButton rippleButton fillButton">{props.settings.strings["confirm"]}</button>
-          </div>
         </form>
+        <div className="buttonContainerMobile">
+          <button className="negativeButton rippleButton fillButton" onClick={forgotClick}>{props.settings.strings["cancel"]}</button>
+          <button type="submit" className="positiveButton rippleButton fillButton">{props.settings.strings["confirm"]}</button>
+        </div>
 
       </div>
 
@@ -79,19 +75,17 @@ export const LoginFormMobile = (props) => {
   return(
     <div className="loginContainerMobile">
 
-
       <form className="loginForm loginFormMobile" name="loginForm" onSubmit={attemptLogin}>
+        <div className="titleContainerMobile">
+          <button className="mobileButtonContainer">
+            <ReturnIcon className="mobileIcon" onClick={(event) => {event.preventDefault(); props.history.goBack()}}/>
+          </button>
+          <div className="titleHeaderMobile">
+            <h1 className="titleTextMobile">{props.settings.strings["log_in"]}</h1>
+          </div>
+        </div>
 
         <div className="inputFields">
-          <div className="titleContainerMobile">
-            <button className="mobileButtonContainer">
-              <ReturnIcon className="mobileIcon" onClick={(event) => {event.preventDefault(); props.history.goBack()}}/>
-            </button>
-            <div className="titleHeaderMobile">
-              <h1 className="titleTextMobile">{props.settings.strings["log_in"]}</h1>
-            </div>
-
-          </div>
           <div className="inputContainer">
             <input name="username" className="input" placeholder={props.settings.strings["email"]} maxLength="32" autoComplete="off"/>
             <div className="inputFocusLine"/>
@@ -104,12 +98,11 @@ export const LoginFormMobile = (props) => {
           <p className="linkText" onClick={forgotClick}>{props.settings.strings["forgot_password"]}</p>
           <p className="linkText" onClick={toSignUp}>{props.settings.strings["create_account"]}</p>
         </div>
-
-        <div className="buttonContainerMobile">
-          <button className="negativeButton rippleButton fillButton" onClick={() => props.history.push("/")}>{props.settings.strings["cancel"]}</button>
-          <button type="submit" className="positiveButton rippleButton fillButton">{props.settings.strings["log_in"]}</button>
-        </div>
       </form>
+      <div className="buttonContainerMobile">
+        <button className="negativeButton rippleButton fillButton" onClick={() => props.history.push("/")}>{props.settings.strings["cancel"]}</button>
+        <button type="submit" className="positiveButton rippleButton fillButton">{props.settings.strings["log_in"]}</button>
+      </div>
 
     </div>
 

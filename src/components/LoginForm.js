@@ -29,6 +29,10 @@ export const LoginForm = (props) => {
     //TODO
   }
 
+  const cancelClick = (event) => {
+    event.preventDefault()
+    props.history.goBack()
+  }
   const toSignUp = (event) => {
     event.preventDefault()
     props.history.push("/sign-up")
@@ -50,9 +54,9 @@ export const LoginForm = (props) => {
           </div>
 
 
-          <div className="buttonContainer">
-            <button className="negativeButton rippleButton" onClick={forgotClick}>{props.settings.strings["cancel"]}</button>
-            <button type="submit" className="positiveButton rippleButton" onClick={recoverPassword}>{props.settings.strings["confirm"]}</button>
+          <div className="postFormButtonContainer">
+            <button className="negativeButton rippleButton fillButton" onClick={forgotClick}>{props.settings.strings["cancel"]}</button>
+            <button type="submit" className="positiveButton rippleButton fillButton" onClick={recoverPassword}>{props.settings.strings["confirm"]}</button>
           </div>
         </form>
 
@@ -78,9 +82,9 @@ export const LoginForm = (props) => {
         <p className="linkText" onClick={forgotClick}>{props.settings.strings["forgot_password"]}</p>
         <p className="linkText" onClick={toSignUp}>{props.settings.strings["create_account"]}</p>
 
-        <div className="buttonContainer">
-          <button className="negativeButton rippleButton" onClick={() => props.history.push("/")}>{props.settings.strings["cancel"]}</button>
-          <button type="submit" className="positiveButton rippleButton">{props.settings.strings["log_in"]}</button>
+        <div className="postFormButtonContainer">
+          <button className="negativeButton rippleButton fillButton" onClick={cancelClick}>{props.settings.strings["cancel"]}</button>
+          <button type="submit" className="positiveButton rippleButton fillButton" onClick={recoverPassword}>{props.settings.strings["log_in"]}</button>
         </div>
 
       </form>

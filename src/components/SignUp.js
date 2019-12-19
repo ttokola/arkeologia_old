@@ -15,17 +15,37 @@ export const SignUp = (props) => {
   const signUpClick = (event) => {
     //check Values locally, if ok send to backend, otherwise notify.
     //TODO
+    console.log(event.target.tos_check.checked)
+    event.preventDefault()
+    const newUser = {
+      "firstName": event.target.firstName.value,
+      "lastName": event.target.lastName.value,
+      "dob": event.target.dob.value,
+      "email": event.target.email.value,
+      "username": event.target.username.value,
+      "password": event.target.password
+    }
+
+    if(event.target.firstName.value === "" || event.target.lastName.value === "" || event.target.dob.value === "" || event.target.email.value === "" || event.target.username.value === "" || event.target.password.value === "" || event.target.password2.value === ""){
+      props.notify(props.settings.strings["unfilled_fields"], true, 8)
+    }else if(event.target.tos_check.checked === false){
+      //tos check
+      props.notify(props.settings.strings["tos_unchecked"], true, 8)
+    }else if(event.target.password.value.length < 8){
+      //pass length check
+      event.target.password.value = ""
+      event.target.password2.value = ""
+      props.notify(props.settings.strings["password_reqs_not_met"], true, 8)
+    }else if(event.target.password.value !== event.target.password2.value){
+      // password match check
+      event.target.password.value = ""
+      event.target.password2.value = ""
+      props.notify(props.settings.strings["passwords_dont_match"], true, 8)
+    }
 
 
   }
 
-  const checkValues = (firstName, lastName, email, dob, username, password) => {
-    //return true if all values ok.
-    //else return false.
-    //
-    //TODO
-
-  }
 
 
   return(
@@ -34,49 +54,59 @@ export const SignUp = (props) => {
         <h1 className="titleText">{props.settings.strings["sign_up"]}</h1>
       </div>
       <div className="signUpContainerInner">
-        <div className="signUpForm">
-          <form>
 
-            <div className="inputContainerPrimary">
-              <input name="firstName" className="inputPrimary" placeholder={props.settings.strings["first_name"]} maxLength="32"/>
+        <form className="signUpForm" onSubmit={signUpClick}>
+          <div className="signUpInputsContainer">
+            <div className="inputContainer">
+              <input name="firstName" className="input" placeholder={props.settings.strings["first_name"]} maxLength="32"/>
               <div className="inputFocusLine"/>
             </div>
 
-            <div className="inputContainerPrimary">
-              <input name="lastName" className="inputPrimary" placeholder={props.settings.strings["last_name"]} maxLength="32"/>
+            <div className="inputContainer">
+              <input name="lastName" className="input" placeholder={props.settings.strings["last_name"]} maxLength="32"/>
               <div className="inputFocusLine"/>
             </div>
 
-            <div className="inputContainerPrimary">
-              <input name="dob" type="date" className="inputPrimary" placeholder={props.settings.strings["dob"]} maxLength="32"/>
+            <div className="inputContainer">
+              <input name="dob" type="date" className="input" placeholder={props.settings.strings["dob"]} maxLength="32"/>
               <div className="inputFocusLine"/>
             </div>
 
-            <div className="inputContainerPrimary">
-              <input type="email" name="email" className="inputPrimary" placeholder={props.settings.strings["email"]} maxLength="32"/>
+            <div className="inputContainer">
+              <input type="email" name="email" className="input" placeholder={props.settings.strings["email"]} maxLength="32"/>
+              <div className="inputFocusLine"/>
+            </div>
+          </div>
+
+          <div>
+            <div className="inputContainer">
+              <input name="username" className="input" placeholder={props.settings.strings["user_name"]} maxLength="32"/>
               <div className="inputFocusLine"/>
             </div>
 
-            <div className="inputContainerPrimary">
-              <input name="username" className="inputPrimary" placeholder={props.settings.strings["user_name"]} maxLength="32"/>
-              <div className="inputFocusLine"/>
-            </div>
-
-            <div className="inputContainerPrimary">
-              <input name="password" className="inputPrimary" type="password" placeholder={props.settings.strings["password"]} maxLength="64"/>
+            <div className="inputContainer">
+              <input name="password" className="input" type="password" placeholder={props.settings.strings["password"]} maxLength="64"/>
               <div className="inputFocusLine"></div>
             </div>
 
-            <div className="inputContainerPrimary">
+            <div className="inputContainer">
+              <input name="password2" className="input" type="password" placeholder={`${props.settings.strings["confirm"]} ${props.settings.strings["password"]}`} maxLength="64"/>
+              <div className="inputFocusLine"></div>
+            </div>
+
+            <div className="inputContainer">
               <input name="tos_check" type="checkbox"/>
               {props.settings.strings["tos_checkbox_text"]}
             </div>
 
-            <button type="submit" className="positiveButton rippleButton">{props.settings.strings["sign_up"]}</button>
-            <button className="negativeButton rippleButton" onClick={() => props.history.push("/")}>{props.settings.strings["cancel"]}</button>
-          </form>
+          </div>
+          <div className="postFormButtonContainer">
+            <button className="positiveButton rippleButton fillButton">{props.settings.strings["sign_up"]}</button>
+            <button className="negativeButton rippleButton fillButton" onClick={() => props.history.push("/")}>{props.settings.strings["cancel"]}</button>
+          </div>
+        </form>
 
-        </div>
+
 
         <div className="signUpTerms">
           <div className="termsContainer">
