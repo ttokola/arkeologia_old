@@ -26,37 +26,44 @@ export const NavMenuMobile = (props) => {
   const aboutClick = (event) => {
     event.preventDefault()
     props.history.push("/about/")
+    toggleVisibity()
 
   }
-  
+
   const toMyPostsClick = (event) => {
     event.preventDefault()
     props.history.push("/my-posts/")
+    toggleVisibity()
   }
 
   const logoutClick = (event) => {
     event.preventDefault()
     console.log("Logging out")
     props.logout(props.notify)
+    toggleVisibity()
   }
   const toLoginClick = (event) => {
     event.preventDefault()
     props.history.push("/login")
+    toggleVisibity()
   }
 
   const toSignUp = (event) => {
     event.preventDefault()
     props.history.push("/sign-up")
+    toggleVisibity()
   }
 
   const toProjectMenu = (event) => {
     event.preventDefault()
     props.history.push("/project-info/")
+    toggleVisibity()
   }
   const toRoot = (event) => {
     //pushes url route to root or "/", might change later when different projects implemented.
     event.preventDefault()
     props.history.push("/")
+    toggleVisibity()
   }
   if(visible){
     return (
