@@ -1,10 +1,9 @@
 .signUpContainer{
   z-index: 4;
-  background: var(--secondary-color);
+  background: var(--primary-color);
   width: -webkit-fill-available;
   width: -moz-available;
-  height: -webkit-fill-available;
-  height: -moz-available;
+  height: 100%;
   max-width: 1000px;
   max-height: 800px;
   border-radius: 5px;
@@ -12,6 +11,19 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
+}
+
+.signUpContainerMobile{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: -webkit-fill-available;
+  height: 100%;
+
+  border-radius: 5px;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .signUpTitleContainer{
   margin: 1em;
@@ -27,23 +39,61 @@
 }
 
 .signUpForm{
-  background: var(--primary-color);
-  width: 48%;
-  height: 100%;
+  background: var(--secondary-color);
+  width: 47%;
   border-radius: 5px;
-  padding: 10px;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.signUpFormMobile{
+  background: var(--secondary-color);
+  border-radius: 5px;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.termsPageContainer{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: -webkit-fill-available;
+  height: 100%;
+
+  border-radius: 5px;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
 
 }
 
 .signUpTerms{
-  background: var(--primary-color);
-  width: 49%;
+  background: var(--secondary-color);
+  width: 47%;
+  border-radius: 5px;
+  padding: 1%;
+  overflow-y: scroll;
+}
+
+.signUpTermsMobile{
+  background: var(--secondary-color);
   height: 100%;
   border-radius: 5px;
+  padding: 1%;
+  overflow-y: scroll;
+  display: flex;
+
 }
 
 .termsContainer{
-  margin: 10px;
+  margin: auto;
+}
+.termsContainerMobile{
+  margin: 0;
 }
 
 
