@@ -65,6 +65,10 @@ html, body, #root, #app, #app>div {
   z-index: 1;
 }
 
+.titleContainer{
+  margin: 1em;
+}
+
 .titleContainerMobile{
   width: 100%;
   height: fit-content;
