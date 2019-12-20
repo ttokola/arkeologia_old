@@ -2,6 +2,7 @@ import React from "react"
 import {connect} from "react-redux"
 
 import {notify} from "../reducers/notificationReducer"
+import {signUpRequest} from "../services/signUp"
 import "../styles/signUp.css"
 import "../styles/inputs.css"
 
@@ -13,19 +14,11 @@ export const SignUp = (props) => {
   1. the form to fill all necessary details before signing up.
   2. Scrollable text box containing the terms of service.
   */
-  const signUpClick = (event) => {
+  const signUpClick = async (event) => {
     //check Values locally, if ok send to backend, otherwise notify.
     //TODO
-    console.log(event.target.tos_check.checked)
     event.preventDefault()
-    const newUser = {
-      "firstName": event.target.firstName.value,
-      "lastName": event.target.lastName.value,
-      "dob": event.target.dob.value,
-      "email": event.target.email.value,
-      "username": event.target.username.value,
-      "password": event.target.password
-    }
+
 
     if(event.target.firstName.value === "" || event.target.lastName.value === "" || event.target.dob.value === "" || event.target.email.value === "" || event.target.username.value === "" || event.target.password.value === "" || event.target.password2.value === ""){
       props.notify(props.settings.strings["unfilled_fields"], true, 8)
@@ -44,6 +37,23 @@ export const SignUp = (props) => {
       props.notify(props.settings.strings["passwords_dont_match"], true, 8)
     }
 
+    const newUser = {
+      "firstName": event.target.firstName.value,
+      "lastName": event.target.lastName.value,
+      "dob": event.target.dob.value,
+      "email": event.target.email.value,
+      "username": event.target.username.value,
+      "password": event.target.password
+    }
+    const response = await signUpRequest(newUser)
+
+    // Redo this after backend specs known.
+    if(response.code === 200){
+      props.notify("Account Creation Succesfull.", false, 5)
+      props.history.push("/")
+    }else{
+      props.notify("Account Creation Failed", false, 5)
+    }
 
   }
 
