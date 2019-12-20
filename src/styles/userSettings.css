@@ -1,0 +1,35 @@
+.userSettingsContainer{
+  z-index: 4;
+  background: var(--secondary-color);
+  width: -webkit-fill-available;
+  width: -moz-available;
+  max-width: 600px;
+  max-height: 800px;
+  border-radius: 5px;
+  margin:auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.userSettingsForm{
+  background: var(--secondary-color);
+  border-radius: 5px;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.infoTextContainer{
+  padding: 5px;
+}
+
+.deleteAccountButtonContainer{
+  margin: 1em 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

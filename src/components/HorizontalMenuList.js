@@ -33,6 +33,14 @@ const HorizontalMenuList = (props) => {
     }
   }
 
+  const accountSettingsClick = (event) => {
+    event.preventDefault()
+    props.history.push("/user-settings/")
+    if(isComponentVisible){
+      toggleDDV()
+    }
+  }
+
   const myPostsClick = (event) => {
     event.preventDefault()
     props.history.push("/my-posts/")
@@ -80,7 +88,7 @@ const HorizontalMenuList = (props) => {
         {isComponentVisible?
           <div className="accountDropDownContainer">
             {props.user?
-              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick}, {string:props.settings.strings["configure_account"], onClickHandler: null},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
+              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: myPostsClick}, {string:props.settings.strings["account_settings"], onClickHandler: accountSettingsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
                 <p className="userNameText">{props.user.username}</p>
                 <ThemeToggleSwitch/>
               </DropDownList>

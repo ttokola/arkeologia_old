@@ -1,39 +1,80 @@
-import React from "react"
+import React, { useState } from "react"
 import {connect} from "react-redux"
 
 import {notify} from "../reducers/notificationReducer"
-import "../styles.css"
+import "../styles/userSettings.css"
 
 export const UserSettings = (props) => {
-
   /*
-
+  Component for configuring user settings. Change password etc.
   */
 
+  const [deleteAccount, setDeleteAccount] = useState(false)
+
+  const toggleDeleteAccount = (event) => {
+    event.preventDefault()
+    setDeleteAccount(!deleteAccount)
+
+  }
+  const deleteAccountConfirmClick = (event) => {
+    event.preventDefault()
+    console.log("deleting account")
+    //TODO
+  }
 
 
+  if(deleteAccount){
+    return(
+      <div className="userSettingsContainer centerAlignWithPadding">
+        <div className="titleContainer">
+          <h1 className="titleText">{props.settings.strings["delete_account"]}</h1>
+        </div>
 
-  return(
-    <div className="signUpContainer centerAlignWithPadding">
-      <div className="signUpTitleContainer">
-        <h1 className="titleText">{props.settings.strings["sign_up"]}</h1>
+        <form className="userSettingsForm">
+
+          <div>
+            <div className="infoTextContainer">
+              <p className="normalText"></p>
+              <p className="normalText">{props.settings.strings["delete_account_confirm"]}</p>
+              <p className="normalText">{props.settings.strings["enter_pass_to_confirm"]}</p>
+            </div>
+
+            <div className="inputContainerPrimary">
+              <input name="password" className="inputPrimary" type="password" placeholder={props.settings.strings["password"]} maxLength="64"/>
+              <div className="inputFocusLine"></div>
+            </div>
+          </div>
+
+
+        </form>
+        <div className="dualButtonContainer">
+          <button className="positiveButton rippleButton fillButton" onClick={deleteAccountConfirmClick}>{props.settings.strings["confirm"]}</button>
+          <button className="negativeButton rippleButton fillButton" onClick={toggleDeleteAccount}>{props.settings.strings["cancel"]}</button>
+        </div>
       </div>
-      <div className="signUpContainerInner">
+    )
+  }else{
+    return(
+      <div className="userSettingsContainer centerAlignWithPadding">
+        <div className="titleContainer">
+          <h1 className="titleText">{props.settings.strings["account_settings"]}</h1>
+        </div>
+        <div className="deleteAccountButtonContainer">
+          <button className="rippleButton" onClick={toggleDeleteAccount}>{props.settings.strings["delete_account"]}</button>
+        </div>
 
-        <form className="signUpForm" onSubmit={signUpClick}>
-          <div className="signUpInputsContainer">
+        <form className="userSettingsForm">
+
+          <div>
+            <div className="infoTextContainer">
+              <p className="normalText">{props.settings.strings["enter_values_to_change"]}</p>
+            </div>
             <div className="inputContainer">
               <input name="firstName" className="input" placeholder={props.settings.strings["first_name"]} maxLength="32"/>
               <div className="inputFocusLine"/>
             </div>
-
             <div className="inputContainer">
               <input name="lastName" className="input" placeholder={props.settings.strings["last_name"]} maxLength="32"/>
-              <div className="inputFocusLine"/>
-            </div>
-
-            <div className="inputContainer">
-              <input name="dob" type="date" className="input" placeholder={props.settings.strings["dob"]} maxLength="32"/>
               <div className="inputFocusLine"/>
             </div>
 
@@ -41,50 +82,44 @@ export const UserSettings = (props) => {
               <input type="email" name="email" className="input" placeholder={props.settings.strings["email"]} maxLength="32"/>
               <div className="inputFocusLine"/>
             </div>
-          </div>
 
-          <div>
             <div className="inputContainer">
               <input name="username" className="input" placeholder={props.settings.strings["user_name"]} maxLength="32"/>
               <div className="inputFocusLine"/>
             </div>
 
             <div className="inputContainer">
-              <input name="password" className="input" type="password" placeholder={props.settings.strings["password"]} maxLength="64"/>
+              <input name="password" className="input" type="password" placeholder={props.settings.strings["new_password"]} maxLength="64"/>
               <div className="inputFocusLine"></div>
             </div>
 
             <div className="inputContainer">
-              <input name="password2" className="input" type="password" placeholder={`${props.settings.strings["confirm"]} ${props.settings.strings["password"]}`} maxLength="64"/>
+              <input name="password2" className="input" type="password" placeholder={`${props.settings.strings["confirm"]} ${props.settings.strings["new_password"]}`} maxLength="64"/>
               <div className="inputFocusLine"></div>
             </div>
 
-            <div className="inputContainer">
-              <input name="tos_check" type="checkbox"/>
-              {props.settings.strings["tos_checkbox_text"]}
+          </div>
+          <div>
+            <div className="infoTextContainer">
+              <p className="normalText">{props.settings.strings["enter_pass_to_confirm"]}</p>
             </div>
 
+            <div className="inputContainer">
+              <input name="password" className="input" type="password" placeholder={props.settings.strings["new_password"]} maxLength="64"/>
+              <div className="inputFocusLine"></div>
+            </div>
           </div>
-          <div className="postFormButtonContainer">
-            <button className="positiveButton rippleButton fillButton">{props.settings.strings["sign_up"]}</button>
-            <button className="negativeButton rippleButton fillButton" onClick={() => props.history.push("/")}>{props.settings.strings["cancel"]}</button>
-          </div>
+
+
         </form>
-
-
-
-        <div className="signUpTerms">
-          <div className="termsContainer">
-            <h2 className="titleText">{props.settings.strings["tos_title"]}</h2>
-            <p className="normalText">{props.settings.strings["tos_text"]}</p>
-          </div>
-
-
+        <div className="dualButtonContainer">
+          <button className="positiveButton rippleButton fillButton">{props.settings.strings["confirm"]}</button>
+          <button className="negativeButton rippleButton fillButton" onClick={() => props.history.push("/")}>{props.settings.strings["cancel"]}</button>
         </div>
       </div>
-    </div>
+    )
+  }
 
-  )
 }
 const mapStateToProps = (state) => {
   return {

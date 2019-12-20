@@ -64,6 +64,13 @@
       "login_required_to_post": "Log In to Post New Content.",
       "user_follow": "The Map Will Automatically Follow Your Avatar Until You Drag The Map.",
       
+      "account_settings": "Account Settings",
+      "new_password": "New Password",
+      "delete_account": "Delete Account",
+      "delete_account_confirm": "You Are About to PERMANENTLY DELETE your account.",
+      "enter_pass_to_confirm": "Enter Your Current Password Below and Click 'Confirm' to Apply Changes.",
+      "enter_values_to_change": "Enter Values for Fields You Want to Edit.",
+
       "tos_checkbox_text": "I Have Read and Agree to the Terms of Service.",
       "read_tos": "Read Terms of Service",
       "tos_title": "Terms of Service",

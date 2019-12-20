@@ -21,6 +21,7 @@ import SignUp from "./SignUp"
 import MyPosts from "./MyPosts"
 import ReportPost from "./ReportPost"
 import AdminView from "./AdminView"
+import UserSettings from "./UserSettings"
 
 const ContentArea = (props) => {
   // Ok this is just a container component for all the sub components that aren't NavBar or Notification.
@@ -90,6 +91,11 @@ const ContentArea = (props) => {
       )}/>
       <Route path="/admin-view/" render={({history}) => (
         <AdminView history={history}/>
+      )}/>
+      <Route path="/user-settings/" render={({history}) => (
+        <PopUpContainer history={history}>
+          <UserSettings history={history}/>
+        </PopUpContainer>
       )}/>
 
 
