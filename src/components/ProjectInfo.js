@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from "react"
 import {connect} from "react-redux"
 
-import {getProjectInfo} from "../services/projects"
+
 import {setActiveProjectInfo} from "../reducers/projectReducer"
 
 import {notify} from "../reducers/notificationReducer"
 
 import "../styles/projectInfo.css"
+import "../styles/containers.css"
 
 export const ProjectInfo = (props) => {
   /*
@@ -14,11 +15,11 @@ export const ProjectInfo = (props) => {
   */
 
   const [info, setInfo] = useState(null)
-  useEffect( async () => {
-    if(props.state.projects.activeInfo === null){
+  useEffect(() => {
+    if(props.projects.activeInfo === null){
       //if active project info is null, update it.
       try{
-        props.setActiveProjectInfo(await getProjectInfo(props.projects.active).data)
+        props.setActiveProjectInfo(props.projects.active)
         setInfo(props.projects.activeInfo)
       }catch(error){
         props.notify("Couldn't get project info", true, 5)
@@ -36,7 +37,7 @@ export const ProjectInfo = (props) => {
 
   if(info){
     return(
-      <div className="projectInfoContainer">
+      <div className="projectInfoContainer centerAlignWithPadding">
         <div className="titleContainer">
           <h1 className="titleText">{info.title}</h1>
         </div>
@@ -46,7 +47,7 @@ export const ProjectInfo = (props) => {
     )
   }else{
     return(
-      <div className="projectInfoContainer">
+      <div className="projectInfoContainer centerAlignWithPadding">
         <div className="titleContainer">
           <h1 className="titleText">{props.settings.strings["project_info"]}</h1>
         </div>
