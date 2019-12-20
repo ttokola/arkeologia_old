@@ -73,6 +73,7 @@ const MapContainerOpen = (props) => {
     }
     if(props.mapLocation !== null){
       console.log("setting map to location")
+      setZoom(14)
       setPosition(props.mapLocation)
       props.updateMapLocation(null)
     }
