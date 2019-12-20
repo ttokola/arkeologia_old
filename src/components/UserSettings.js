@@ -39,8 +39,8 @@ export const UserSettings = (props) => {
               <p className="normalText">{props.settings.strings["enter_pass_to_confirm"]}</p>
             </div>
 
-            <div className="inputContainerPrimary">
-              <input name="password" className="inputPrimary" type="password" placeholder={props.settings.strings["password"]} maxLength="64"/>
+            <div className="inputContainer">
+              <input name="password" className="input" type="password" placeholder={props.settings.strings["password"]} maxLength="64"/>
               <div className="inputFocusLine"></div>
             </div>
           </div>
@@ -105,7 +105,7 @@ export const UserSettings = (props) => {
             </div>
 
             <div className="inputContainer">
-              <input name="password" className="input" type="password" placeholder={props.settings.strings["new_password"]} maxLength="64"/>
+              <input name="password" className="input" type="password" placeholder={props.settings.strings["password"]} maxLength="64"/>
               <div className="inputFocusLine"></div>
             </div>
           </div>
