@@ -2,7 +2,7 @@ import React from "react"
 import {connect} from "react-redux"
 
 import {notify} from "../reducers/notificationReducer"
-import {signUpRequest} from "../services/signUp"
+import signUpService from "../services/signUp"
 import "../styles/signUp.css"
 import "../styles/inputs.css"
 
@@ -45,7 +45,7 @@ export const SignUp = (props) => {
       "username": event.target.username.value,
       "password": event.target.password
     }
-    const response = await signUpRequest(newUser)
+    const response = await signUpService.signUpRequest(newUser)
 
     // Redo this after backend specs known.
     if(response.code === 200){

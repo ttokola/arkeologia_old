@@ -49,6 +49,11 @@
       "username": "Niklas",
       "password": "asdasd",
       "id": 10
+    },
+    {
+      "username": "testuser",
+      "password": "asdasd",
+      "id": 11
     }
   ],
   "posts": [
