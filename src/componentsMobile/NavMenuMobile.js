@@ -59,6 +59,13 @@ export const NavMenuMobile = (props) => {
     props.history.push("/project-info/")
     toggleVisibity()
   }
+
+  const toUserSettingsClick = (event) => {
+    event.preventDefault()
+    props.history.push("/account-settings/")
+    toggleVisibity()
+  }
+
   const toRoot = (event) => {
     //pushes url route to root or "/", might change later when different projects implemented.
     event.preventDefault()
@@ -101,7 +108,7 @@ export const NavMenuMobile = (props) => {
           <div className="divider"/>
           {props.user?
             <div className="mobileMenuUserContainer">
-              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: toMyPostsClick}, {string:props.settings.strings["configure_account"], onClickHandler: null},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
+              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: toMyPostsClick}, {string:props.settings.strings["account_settings"], onClickHandler: toUserSettingsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
                 <LanguageDropDown/>
                 <ThemeToggleSwitch/>
               </DropDownList>
