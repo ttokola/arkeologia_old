@@ -7,7 +7,6 @@ import {notify} from "../reducers/notificationReducer"
 
 
 import "../styles/listView.css"
-import "../styles/postList.css"
 import "../styles/postView.css"
 import PostViewLW from "./PostViewLW"
 
@@ -32,51 +31,50 @@ export const ListView = (props) => {
   const [post, setPost] = useState(props.posts[0])
   const [posts, setPosts] = useState(props.posts)
 
-
   return (
-    <div className="listViewContainer">
-      <div className="listViewInnerContainer centerAlign">
-        <div className="postListContainer">
-          <div className="postListContainerInner">
-            <div className="searchContainer">
-              <form name="searchForm">
-                <div className="searchInputContainer">
-                  <input name="username" className="input" placeholder={props.settings.strings["search"]} maxLength="32" autoComplete="off"/>
-                  <div className="inputFocusLine"/>
-                </div>
-              </form>
-            </div>
-            <div className="filterSortContainer">
-              <button className="rippleButton">Filter</button>
-              <button className="rippleButton">Sort</button>
 
-            </div>
-            <ul className="postListList">
-              {posts.map((post,index) =>
-                <li key={index} className="postListItem" onClick={() => onItemClick(post)}>
-                  <div className="postListItemImageContainer">
-                    <img className="postListImagePreview" src={post.image.data}></img>
-                  </div>
-                  <div className="postListItemInfo">
-                    <h2 className="postListTitle">{post.title}</h2>
-                    <p className="postListText">{post.author}</p>
-                    <p className="postListText">{getDateFromUnixStamp(post.date)}</p>
-                  </div>
-                </li>
-              )}
-            </ul>
+    <div className="listViewInnerContainer centerAlign">
+      <div className="postListContainer">
+        <div className="postListContainerInner">
+          <div className="searchContainer">
+            <form name="searchForm">
+              <div className="searchInputContainer">
+                <input name="username" className="input" placeholder={props.settings.strings["search"]} maxLength="32" autoComplete="off"/>
+                <div className="inputFocusLine"/>
+              </div>
+            </form>
           </div>
+          <div className="filterSortContainer">
+            <button className="rippleButton">Filter</button>
+            <button className="rippleButton">Sort</button>
+
+          </div>
+          <ul className="postListList">
+            {posts.map((post,index) =>
+              <li key={index} className="postListItem" onClick={() => onItemClick(post)}>
+                <div className="postListItemImageContainer">
+                  <img className="postListImagePreview" src={post.image.data}></img>
+                </div>
+                <div className="postListItemInfo">
+                  <h2 className="postListTitle">{post.title}</h2>
+                  <p className="postListText">{post.author}</p>
+                  <p className="postListText">{getDateFromUnixStamp(post.date)}</p>
+                </div>
+              </li>
+            )}
+          </ul>
         </div>
-
-        <div className="postPreviewContainer">
-          <PostViewLW post={post} history={props.history}/>
-        </div>
-
-
-
       </div>
 
+      <div className="postPreviewContainer">
+        <PostViewLW post={post} history={props.history}/>
+      </div>
+
+
+
     </div>
+
+
 
 
   )

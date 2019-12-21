@@ -7,7 +7,6 @@ import {notify} from "../reducers/notificationReducer"
 
 
 import "../styles/listView.css"
-import "../styles/postList.css"
 import "../styles/postView.css"
 
 
@@ -22,6 +21,7 @@ export const ListViewMobile = (props) => {
     Mobile version of listview component, doesn't include postview, every list entry will
     navigate to relevant postview id via router.
   */
+  const [posts, setPosts] = useState(props.posts)
 
   const onItemClick = (post) => {
     props.history.push(`/post-view/${post.id}`)
@@ -51,8 +51,6 @@ export const ListViewMobile = (props) => {
       props.notify(props.settings.strings["login_required_to_post"], false, 5)
     }
   }
-
-  const [posts, setPosts] = useState(props.posts)
 
 
   return (

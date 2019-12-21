@@ -49,6 +49,11 @@
       "username": "Niklas",
       "password": "asdasd",
       "id": 10
+    },
+    {
+      "username": "testuser",
+      "password": "asdasd",
+      "id": 11
     }
   ],
   "posts": [
@@ -113,153 +118,9 @@
       "id": 12
     }
   ],
-  "projectNames": [
+  "projects": [
     "Chimney Project",
     "Scaffolding Project",
     "Ice Age Project"
-  ],
-  "projects": [
-    {
-      "name": "Chimney Project",
-      "admin": "ChimneyMaster",
-      "moderators": [
-        "ChimneyApprentice",
-        "ChimneyIntern"
-      ],
-      "limitedPosts": [
-        {
-          "author": "test_user",
-          "title": "Example Post",
-          "location": {
-            "lat": 65.01099551869925,
-            "lng": 25.47008514404297
-          },
-          "date": 1572697670452,
-          "id": 1
-        },
-        {
-          "author": "Niklas",
-          "title": "This is the post title.",
-          "location": {
-            "lat": 64.99169892880357,
-            "lng": 25.488967895507816
-          },
-          "date": 1572951418240,
-          "id": 2
-        },
-        {
-          "author": "Niklas",
-          "title": "asdasdasd",
-          "location": {
-            "lat": 65.02594803929131,
-            "lng": 25.469012260437015
-          },
-          "date": 1573322766080,
-          "id": 3
-        }
-      ],
-      "fullPosts": [
-        {
-          "author": "test_user",
-          "title": "Example Post",
-          "story": "This Post was made created with New Post Choose On Map.",
-          "image": {},
-          "location": {
-            "lat": 65.01099551869925,
-            "lng": 25.47008514404297
-          },
-          "date": 1572697670452,
-          "id": 1
-        },
-        {
-          "author": "Niklas",
-          "title": "This is the post title.",
-          "story": "Here I could write a story or description about the chimney.",
-          "image": {},
-          "location": {
-            "lat": 64.99169892880357,
-            "lng": 25.488967895507816
-          },
-          "date": 1572951418240,
-          "id": 2
-        },
-        {
-          "author": "Niklas",
-          "title": "asdasdasd",
-          "story": "asdasdasdasd",
-          "image": {},
-          "location": {
-            "lat": 65.02594803929131,
-            "lng": 25.469012260437015
-          },
-          "date": 1573322766080,
-          "id": 3
-        }
-      ]
-    },
-    {
-      "name": "Scaffolding Project",
-      "admin": "Framer",
-      "moderators": [],
-      "smallPosts": [
-        {
-          "author": "test_user",
-          "title": "Example Post",
-          "location": {
-            "lat": 65.01099551869925,
-            "lng": 25.47008514404297
-          },
-          "date": 1572697670452,
-          "id": 1
-        }
-      ],
-      "fullPosts": [
-        {
-          "author": "test_user",
-          "title": "Example Post",
-          "story": "This Post was made created with New Post Choose On Map.",
-          "image": {},
-          "location": {
-            "lat": 65.01099551869925,
-            "lng": 25.47008514404297
-          },
-          "date": 1572697670452,
-          "id": 1
-        }
-      ]
-    },
-    {
-      "name": "Ice Age Project",
-      "admin": "rip_mammoths",
-      "moderators": [
-        "neanderthal"
-      ],
-      "smallPosts": [
-        {
-          "author": "rip_mammoths",
-          "title": "This is the post title.",
-          "location": {
-            "lat": 64.97169852880357,
-            "lng": 25.488967892207818
-          },
-          "date": 1572951418240,
-          "id": 0
-        }
-      ],
-      "fullPosts": [
-        {
-          "author": "rip_mammoths",
-          "title": "This is the post title.",
-          "story": "Here I could write a story or description about the chimney.",
-          "image": {},
-          "location": {
-            "lat": 64.97169852880357,
-            "lng": 25.488967892207818
-          },
-          "date": 1572951418240,
-          "id": 0
-        }
-      ]
-    }
   ]
 }

@@ -26,37 +26,51 @@ export const NavMenuMobile = (props) => {
   const aboutClick = (event) => {
     event.preventDefault()
     props.history.push("/about/")
+    toggleVisibity()
 
   }
-  
+
   const toMyPostsClick = (event) => {
     event.preventDefault()
     props.history.push("/my-posts/")
+    toggleVisibity()
   }
 
   const logoutClick = (event) => {
     event.preventDefault()
     console.log("Logging out")
     props.logout(props.notify)
+    toggleVisibity()
   }
   const toLoginClick = (event) => {
     event.preventDefault()
     props.history.push("/login")
+    toggleVisibity()
   }
 
   const toSignUp = (event) => {
     event.preventDefault()
     props.history.push("/sign-up")
+    toggleVisibity()
   }
 
   const toProjectMenu = (event) => {
     event.preventDefault()
     props.history.push("/project-info/")
+    toggleVisibity()
   }
+
+  const toUserSettingsClick = (event) => {
+    event.preventDefault()
+    props.history.push("/account-settings/")
+    toggleVisibity()
+  }
+
   const toRoot = (event) => {
     //pushes url route to root or "/", might change later when different projects implemented.
     event.preventDefault()
     props.history.push("/")
+    toggleVisibity()
   }
   if(visible){
     return (
@@ -94,7 +108,7 @@ export const NavMenuMobile = (props) => {
           <div className="divider"/>
           {props.user?
             <div className="mobileMenuUserContainer">
-              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: toMyPostsClick}, {string:props.settings.strings["configure_account"], onClickHandler: null},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
+              <DropDownList  items={[{string:props.settings.strings["my_posts"], onClickHandler: toMyPostsClick}, {string:props.settings.strings["account_settings"], onClickHandler: toUserSettingsClick},{string:props.settings.strings["about"], onClickHandler:aboutClick}, {string:props.settings.strings["log_out"], onClickHandler: logoutClick}]}>
                 <LanguageDropDown/>
                 <ThemeToggleSwitch/>
               </DropDownList>

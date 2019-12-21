@@ -13,14 +13,17 @@
 }
 
 .myPostsContainerMobile{
-  
+  z-index: 4;
+  background: var(--secondary-color);
+  width: 100%;
+  height: 100%;
+  margin:0;
+  display: flex;
+  flex-direction: column;
 }
 
 .myPostsList{
-  width: -webkit-fill-available;
-  width: -moz-available;
-  height: -webkit-fill-available;
-  height: -moz-available;
+  height: 100%;
   list-style-type: none;
   padding: 0;
   max-height: auto;

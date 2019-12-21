@@ -1,14 +1,31 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import {connect} from "react-redux"
 
 
-//probably make individual css files for all you use here.
+import {setActiveProjectInfo} from "../reducers/projectReducer"
+
+import {notify} from "../reducers/notificationReducer"
+
+import "../styles/projectInfo.css"
+import "../styles/containers.css"
 
 export const ProjectInfo = (props) => {
-  //connected to redux state to get the current project info.
-  //Don't know yet what the format is going to be but lets say that you can access it using
-  // props.info.SOMETHING, that has like name, contact infomation, purpose, goal etc.
-  //use placeholder strings for now.
+  /*
+  Some initial stuff for project info component
+  */
+
+  const [info, setInfo] = useState(null)
+  useEffect(() => {
+    if(props.projects.activeInfo === null){
+      //if active project info is null, update it.
+      try{
+        props.setActiveProjectInfo(props.projects.active)
+        setInfo(props.projects.activeInfo)
+      }catch(error){
+        props.notify("Couldn't get project info", true, 5)
+      }
+    }
+  })
 
   const closeClick = (event) => {
     //go back to the previous page
@@ -17,27 +34,45 @@ export const ProjectInfo = (props) => {
     props.history.goBack()
   }
 
-  //html stuff here
-  return(
-    <div>
-      <h1>PROJECT INFO</h1>
-      <button onClick={closeClick}>CLOSE</button>
 
-    </div>
+  if(info){
+    return(
+      <div className="projectInfoContainer centerAlignWithPadding">
+        <div className="titleContainer">
+          <h1 className="titleText">{info.title}</h1>
+        </div>
 
-  )
+
+      </div>
+    )
+  }else{
+    return(
+      <div className="projectInfoContainer centerAlignWithPadding">
+        <div className="titleContainer">
+          <h1 className="titleText">{props.settings.strings["project_info"]}</h1>
+        </div>
+      </div>
+    )
+  }
+
 }
 
 const mapStateToProps = (state) => {
   return {
     //maps state to props, after this you can for example call props.notification
-    //TODO when we have project reducer.
-
-
+    projects: state.projects,
+    settings: state.settings
   }
+}
+
+const mapDispatchToProps = {
+  //connect reducer functions/dispatchs to props
+  notify,
+  setActiveProjectInfo
+
 }
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(ProjectInfo)

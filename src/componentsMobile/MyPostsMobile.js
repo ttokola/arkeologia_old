@@ -65,7 +65,7 @@ export const MyPostsMobile = (props) => {
   }
   //if user doesn't have any posts, tell them
   return(
-    <div className="myPostsContainer">
+    <div className="myPostsContainerMobile">
       <div className="titleContainerMobile">
         <button className="mobileButtonContainer">
           <ReturnIcon className="mobileIcon" onClick={() => props.history.goBack()}/>

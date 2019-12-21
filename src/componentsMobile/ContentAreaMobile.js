@@ -13,6 +13,8 @@ import LoginFormMobile from "./LoginFormMobile"
 import ListViewMobile from "./ListViewMobile"
 import NewPostMobile from "./NewPostMobile"
 import MyPostsMobile from "./MyPostsMobile"
+import SignUpMobile from "./SignUpMobile"
+import UserSettingsMobile from "./UserSettingsMobile"
 
 const ContentAreaMobile = (props) => {
   // Ok this is just a container component for all the sub components except notification.
@@ -41,11 +43,17 @@ const ContentAreaMobile = (props) => {
       <Route path="/login/" render={({history}) => (
         <LoginFormMobile history={history}/>
       )}/>
+      <Route path="/sign-up/" render={({history}) => (
+        <SignUpMobile history={history}/>
+      )}/>
       <Route path="/new-post/" render={({history}) => (
         <NewPostMobile history={history}/>
       )}/>
       <Route path="/my-posts/" render={({history}) => (
         <MyPostsMobile history={history}/>
+      )}/>
+      <Route path="/account-settings/" render={({history}) => (
+        <UserSettingsMobile history={history}/>
       )}/>
     </div>
   )
